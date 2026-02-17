@@ -1,6 +1,13 @@
 table Brands
 	lineageTag: 6df5ac0d-78fd-40ee-aca3-d095202fc9ec
 
+	measure test_brand_measure = ```
+			[Budget Orders VCM] 
+			```
+		lineageTag: a507c1be-3336-48d0-9558-aaaca681605f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column bi_name
 		dataType: string
 		lineageTag: 9eb81162-d044-4a09-9d78-7a8a6c384211
