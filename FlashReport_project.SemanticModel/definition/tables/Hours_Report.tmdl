@@ -1,0 +1,70 @@
+table Hours_Report
+	lineageTag: 01c329ba-4cd4-444f-a957-7b20257c29d8
+
+	column Prod_Week
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 51c9e147-f376-4698-b36e-6d97564868c6
+		summarizeBy: none
+		sourceColumn: Prod_Week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Department
+		dataType: string
+		lineageTag: b0ff9437-8d10-4487-979f-ec7e62334a07
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Regular_Hours
+		dataType: double
+		lineageTag: 137471d9-d7bb-4ca0-b90e-08a413b7854b
+		summarizeBy: sum
+		sourceColumn: Regular_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Overtime_Hours
+		dataType: double
+		lineageTag: 564cc787-6b20-49dc-8e77-64d68a4ed71a
+		summarizeBy: sum
+		sourceColumn: Overtime_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Week_Num
+		dataType: int64
+		formatString: 0
+		lineageTag: 953c009e-2717-4ab6-9b91-3addb1cca9fd
+		summarizeBy: none
+		sourceColumn: Week_Num
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Hours_Report = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    ReportData = Source{[Name="ReportData"]}[Data],
+				    dbo_Hours_Report = ReportData{[Schema="dbo",Item="Hours_Report"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_Hours_Report, each ([Department] = "Blend" or [Department] = "Capsule" or [Department] = "Capsule Packaging" or [Department] = "Encap" or [Department] = "Gusseted Bag" or [Department] = "Kitting" or [Department] = "Powder" or [Department] = "Powder Packaging" or [Department] = "Stick" or [Department] = "Stick Pack")),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Filtered Rows","Stick","Stick Pack",Replacer.ReplaceValue,{"Department"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Replaced Value2","Powder Packaging","Powder",Replacer.ReplaceText,{"Department"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Capsule Packaging","Capsule",Replacer.ReplaceText,{"Department"}),
+				    #"Sorted Rows" = Table.Sort(#"Replaced Value1",{{"Prod_Week", Order.Descending}})
+				in
+				    #"Sorted Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

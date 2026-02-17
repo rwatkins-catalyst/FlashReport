@@ -1,0 +1,77 @@
+table Brands
+	lineageTag: 6df5ac0d-78fd-40ee-aca3-d095202fc9ec
+
+	column bi_name
+		dataType: string
+		lineageTag: 9eb81162-d044-4a09-9d78-7a8a6c384211
+		summarizeBy: none
+		sourceColumn: bi_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column bi_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a2ce375-abc1-45be-9718-423ed140ae43
+		summarizeBy: none
+		sourceColumn: bi_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier
+		dataType: string
+		lineageTag: b7c7e7d3-6623-4b8d-9a91-b63409882505
+		summarizeBy: none
+		sourceColumn: tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_rep_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5522971b-3bf9-4323-bf7e-9aaab01cdd73
+		summarizeBy: sum
+		sourceColumn: sales_rep_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Rep'
+		dataType: string
+		lineageTag: e485ab00-f32c-4a2c-9fbc-1f2ab8f0703e
+		summarizeBy: none
+		sourceColumn: Sales Rep
+
+		annotation SummarizationSetBy = Automatic
+
+	column domain
+		dataType: string
+		lineageTag: e693ae4c-7155-46c0-b6fe-e7e615cda112
+		summarizeBy: none
+		sourceColumn: domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column bi_name_adj
+		dataType: string
+		lineageTag: 288fe6e1-4edc-4459-8669-c35f43249cd3
+		summarizeBy: none
+		sourceColumn: bi_name_adj
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Brands = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("CATSQL1\CATSQL1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_brands = deacom_replica{[Schema="dbo",Item="brands"]}[Data],
+				    #"Replaced Value" = Table.ReplaceValue(dbo_brands,"PacificNorthwest Naturals","Brands",Replacer.ReplaceText,{"bi_name"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Brands","PacificNorthwest Naturals",Replacer.ReplaceValue,{"bi_name"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

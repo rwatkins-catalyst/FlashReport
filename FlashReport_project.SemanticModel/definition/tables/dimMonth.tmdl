@@ -1,0 +1,28 @@
+table dimMonth
+	lineageTag: 2e150b27-8309-4158-97f8-86d4324cd150
+
+	column Month
+		formatString: General Date
+		lineageTag: 1d94ab55-7ea8-4d8a-baf2-69b861a03dc7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		variation Variation
+			isDefault
+			relationship: 47807050-7da2-42c3-a738-40a62224caf9
+			defaultHierarchy: LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimMonth = calculated
+		mode: import
+		source =
+				
+				SELECTCOLUMNS(
+				  SUMMARIZE(dimDates, dimDates[Month]),
+				  "Month", dimDates[Month]
+				)
+
+	annotation PBI_Id = 79bd3745cdbe4516b742a78a4c19a6ab
+

@@ -1,0 +1,271 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "3e86e7a23c5d258b52ba",
+  "position": {
+    "x": 0,
+    "y": 138.3896103896104,
+    "z": 1000,
+    "height": 294.23376623376623,
+    "width": 639.58441558441552,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Warehouse_Capacity"
+                        }
+                      },
+                      "Property": "total available"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(wh_capacity.total available)",
+              "nativeQueryRef": "Available",
+              "displayName": "Available"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Warehouse_Capacity"
+                        }
+                      },
+                      "Property": "packaging"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(wh_capacity.packaging)",
+              "nativeQueryRef": "Packaging",
+              "displayName": "Packaging"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Warehouse_Capacity"
+                        }
+                      },
+                      "Property": "finished goods"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(wh_capacity.finished goods)",
+              "nativeQueryRef": "Finished Goods",
+              "displayName": "Finished Goods"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Warehouse_Capacity"
+                        }
+                      },
+                      "Property": "raw materials "
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(wh_capacity.raw materials )",
+              "nativeQueryRef": "Raw Materials",
+              "displayName": "Raw Materials"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Warehouse_Capacity"
+                        }
+                      },
+                      "Property": "quarantine"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(wh_capacity.quarantine)",
+              "nativeQueryRef": "Quarantine",
+              "displayName": "Quarantine"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Warehouse_Capacity"
+                      }
+                    },
+                    "Property": "total available"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'outside'"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Warehouse Racking Utilization'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

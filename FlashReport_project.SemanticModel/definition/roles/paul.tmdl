@@ -1,0 +1,7 @@
+role paul
+	modelPermission: read
+
+	tablePermission Orders_Budget = [domain] == "CATALYST\paul"
+
+	annotation PBI_Id = 3a31f4a7175542679f8a08bc5ad047ac
+

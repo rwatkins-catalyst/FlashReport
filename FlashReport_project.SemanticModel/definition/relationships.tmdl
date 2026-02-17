@@ -1,0 +1,335 @@
+relationship 2d2032dc-ee4c-46ac-8c80-b646a34fafa8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Open_Jobs.plan_finish
+	toColumn: LocalDateTable_67da95ff-3646-40cc-90b6-4f9baafdc1a1.Date
+
+relationship bbf02256-012b-46b0-8a69-70c92bc07f26
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Open_Jobs.due_date
+	toColumn: LocalDateTable_b97f2453-9261-4470-ae2b-09b319cfbbe6.Date
+
+relationship 8d738570-bbc1-41ac-9e2a-75305e211a60
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Open_Jobs.closed_date
+	toColumn: LocalDateTable_7b2f6148-c41e-4cf0-b2f1-b79f1d64dc0b.Date
+
+relationship 5697f980-f34c-400b-8789-d4235aae3fa4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP.'Order Date'
+	toColumn: LocalDateTable_574bf30a-d600-4096-8e3d-87803f9a7e0b.Date
+
+relationship 5ae174d2-85a5-4dea-a46c-850072c97db4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP.'Orig Promised Date'
+	toColumn: LocalDateTable_c0f05c87-84d2-41a6-a2e5-f0aee9b907e2.Date
+
+relationship 6456d6fb-4dab-49ea-b6ae-734a07defe88
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Vendor_Lots.date_rec
+	toColumn: LocalDateTable_c56959ba-26f3-40f1-b836-779e5090c5eb.Date
+
+relationship 9080ce97-d73a-49ef-806b-374723aff0d3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Vendor_Lots.fi_date
+	toColumn: LocalDateTable_c958aec0-9b1f-4450-bcf1-89602b95bfd3.Date
+
+relationship 56201305-a4c0-4756-b6a3-75224c78ef26
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FGbyCustv3.'orig promised'
+	toColumn: LocalDateTable_ef95c061-abed-401c-88a5-450b225a47a2.Date
+
+relationship 28f1c436-5c2e-4c6e-9057-570768f74bd9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FGbyCustv3.'expiration date'
+	toColumn: LocalDateTable_f516fe7a-2989-4db4-abda-57e10d2d2f52.Date
+
+relationship 1264fd2b-5c01-41b7-b448-1f32d768300b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FGbyCustv3.'qc clear date'
+	toColumn: LocalDateTable_441f59ca-76ed-4aca-a00a-efd7e9170244.Date
+
+relationship 0a8173d8-9c85-44e0-b0ba-f5b79b814734
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Account_Receivable.'Last Shipment'
+	toColumn: LocalDateTable_3f65f4cb-6c50-4903-9373-a4bb362d8039.Date
+
+relationship d3c2eaa9-1835-45fc-9845-d5ec8e0bb822
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Account_Receivable.'Last Payment'
+	toColumn: LocalDateTable_6e3329e1-b485-4894-b908-31335a1a3848.Date
+
+relationship b876d7c6-f87a-4ce2-9c67-ae43c0eba79a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Replacement_Cost.request_date
+	toColumn: LocalDateTable_51b1af4d-a94c-4c2e-9a05-2a89ec968e54.Date
+
+relationship a8edf251-f5f3-407f-942a-7ceb59486c11
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Replacement_Cost.promised_date
+	toColumn: LocalDateTable_58ea8280-7799-4a77-8194-63ea4cf6c0da.Date
+
+relationship 4e64435f-eb78-41fe-b085-691404688d8a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Replacement_Cost.received_date
+	toColumn: LocalDateTable_c2f6425c-8c4e-4756-a839-bf093f3a3c3d.Date
+
+relationship 1daf410e-c3e4-49fb-bf4b-65e436b7d70f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Replacement_Cost.date_to_pay
+	toColumn: LocalDateTable_3ec904db-0130-4aba-bb62-55f3aa7c6f1e.Date
+
+relationship 75c0adf1-da89-4cd0-9038-c34b9ff1b871
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Replacement_Cost.pay_date
+	toColumn: LocalDateTable_d3a67065-931f-4aad-96d5-3b2664e0dfb6.Date
+
+relationship bb5ec34c-a1c9-480e-a634-2ae882700b26
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Replacement_Cost.confirm_date
+	toColumn: LocalDateTable_2baffa38-a84b-43b2-a911-c0ee2e242194.Date
+
+relationship bf3cf533-dc0a-410c-b62c-c562bf649b9e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP_PO.request_date
+	toColumn: LocalDateTable_32c5b556-2bbd-4169-85cc-0e7002dda19a.Date
+
+relationship 7c317e39-68d3-4137-a557-29884b3e9192
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP_PO.promised_date
+	toColumn: LocalDateTable_210de68d-6446-4dca-950a-c857a56e74b2.Date
+
+relationship 975bc74d-42ad-442b-aea4-720b343e0c67
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP_PO.date_to_pay
+	toColumn: LocalDateTable_a59a3e31-1535-4b5f-83bb-41115f841459.Date
+
+relationship 9a635478-8554-4925-99f3-dd85d67aabff
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP_PO.pay_date
+	toColumn: LocalDateTable_94c96bcb-819c-47e3-bcd0-7be2a9863b8a.Date
+
+relationship 14705b4e-166e-42c9-9236-c6b98e5c0729
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP_PO.confirm_date
+	toColumn: LocalDateTable_5dbadad3-b684-4eda-9071-080a8da6d614.Date
+
+relationship 7a72c188-5b27-4252-b54f-3a768ca259db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP_PO.created_date
+	toColumn: LocalDateTable_2779d56e-3ddd-4c24-aa26-7d8119cf412a.Date
+
+relationship e864a038-fd10-45cc-87b2-1518955f8efa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FGbyCustQCPendingv4.'due to ship'
+	toColumn: LocalDateTable_2bb93156-25ff-4565-ad2c-026327e5b72b.Date
+
+relationship 00206931-6b15-4467-90f7-16fa23f9c7eb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FGbyCustQCPendingv4.'Orig Promised'
+	toColumn: LocalDateTable_dfb71d2e-bb4d-4b1b-8a3a-84003dad6693.Date
+
+relationship 70bcbdff-8c36-4c16-bdc5-671047ba45eb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FGbyCustQCPendingv4.'expiration date'
+	toColumn: LocalDateTable_353b5ecc-9e35-4d34-93e3-623f1364054c.Date
+
+relationship 47807050-7da2-42c3-a738-40a62224caf9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dimMonth.Month
+	toColumn: LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d.Date
+
+relationship c0d87462-c4ed-8c30-e908-2a277d7bfc88
+	fromColumn: dimDates.Month
+	toColumn: dimMonth.Month
+
+relationship 32ef992d-b668-46d6-b9d4-db87a916bd89
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quotes.Expected_Closing
+	toColumn: LocalDateTable_6af7d558-fc93-4904-94f2-2a6b61aed805.Date
+
+relationship 5b27ecc6-fb52-48a0-acef-fd1164a4dbf5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quotes.Last_Stage_Update
+	toColumn: LocalDateTable_1fc6483e-9f1c-44d0-82e0-944bbc52d69e.Date
+
+relationship a5d41f9c-87df-4538-8675-2ed7c6dcc383
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dimDates.'Week Start Date'
+	toColumn: LocalDateTable_02c8aca8-3038-4d88-939e-584f9f5df444.Date
+
+relationship 35a59363-bd26-4b61-b787-bee0b5fe4574
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dimDates.'Week End Date'
+	toColumn: LocalDateTable_fa699560-9035-4972-bec0-c6ef1dde83bd.Date
+
+relationship 8d0e6752-87e1-474f-af3c-b0f40ed2faec
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dimDates.'Week End Date (saturday)'
+	toColumn: LocalDateTable_4175fb99-8699-426d-907e-2642196fc87b.Date
+
+relationship 51c62e32-103a-7b42-aef9-36b7a42fcb78
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Hours_Report.Week_Num
+	toColumn: Prod_Hours.week
+
+relationship f07944a7-b060-4dc5-ae85-fa9e5b37bb5b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Production.MonthStart
+	toColumn: LocalDateTable_7cdd5f02-04be-4c8f-83bd-78219dd0b6b8.Date
+
+relationship 853cf1bf-b641-429c-828d-657e62aefffa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OTTFP.min_qc
+	toColumn: LocalDateTable_220bf682-ed74-404f-ab4e-a4e9d0052d79.Date
+
+relationship 42d1dd41-8efc-45a1-a08e-22c08511af67
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Open_Orders.'Promise Date'
+	toColumn: LocalDateTable_962320ae-350a-4a60-b460-d0e6bbd15338.Date
+
+relationship 389dce1a-c4c8-4c55-b4f5-16c3a2e1e277
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Open_Orders.'Order Date'
+	toColumn: LocalDateTable_920b53bc-d35d-401a-a125-ad7d89fbf484.Date
+
+relationship d4df8e2d-257a-8680-07bc-49a11b4c34c8
+	fromColumn: Orders_Budget.brand_id
+	toColumn: Brands.bi_id
+
+relationship 8f95b642-b7c6-4526-88bc-5d8dd9ebb1ed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dimDates.Date
+	toColumn: LocalDateTable_1cda4e0f-5676-4936-b0b1-fb47ba9104e2.Date
+
+relationship ca43a632-54d1-2e24-03ae-54acb132067a
+	fromColumn: Prod_Hours.job_date
+	toColumn: dimDates.Date
+
+relationship ea92c73a-d6ec-5766-83ca-f33326060a7a
+	fromColumn: OTTFP.'Shipped Date'
+	toColumn: dimDates.Date
+
+relationship caea6fc3-40c5-0b32-d43e-162b9def9567
+	fromColumn: Open_Jobs.plan_start
+	toColumn: dimDates.Date
+
+relationship 6b2ebe25-4070-a369-a797-c3b32663975d
+	fromColumn: FGbyCustv3.'due to ship'
+	toColumn: dimDates.Date
+
+relationship fdf6b8bf-1e3b-9970-88f7-5abb6e47538e
+	isActive: false
+	fromColumn: Replacement_Cost.created_date
+	toColumn: dimDates.Date
+
+relationship 9f745b93-e91a-8b83-227f-060dfbdbb301
+	fromColumn: OTTFP_PO.received_date
+	toColumn: dimDates.Date
+
+relationship 649f7de2-9f3e-0c33-2abc-5a8c0d8c460f
+	crossFilteringBehavior: bothDirections
+	fromColumn: Quotes.Created_on
+	toColumn: dimDates.Date
+
+relationship 8078e2d3-008f-d597-955e-43ac6e56c280
+	toCardinality: many
+	fromColumn: Production.job_date
+	toColumn: dimDates.Date
+
+relationship ab077a2f-64d6-eb9a-581b-a613bd662419
+	fromColumn: Hours_Report.Prod_Week
+	toColumn: dimDates.Date
+
+relationship 6fa68610-eff3-2274-2c02-282e5ea7e4e3
+	fromColumn: Open_Orders.'Due to Ship Date'
+	toColumn: dimDates.Date
+
+relationship b380ee5c-0be3-a4a3-cfe6-73546d655952
+	fromColumn: Margin.to_shipped
+	toColumn: dimDates.Date
+
+relationship 488a80f1-eb27-52b3-a429-94a78acd5df4
+	fromColumn: Orders_Budget.month_year_field
+	toColumn: dimDates.Date
+
+relationship 979ea990-e0ca-cfc4-286b-fb56acdefec8
+	fromColumn: Sales_Budget.ship_date
+	toColumn: dimDates.Date
+
+relationship 57caa294-afac-4889-b6d0-0c37927d79f3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Budget.Month
+	toColumn: LocalDateTable_87873b25-8441-4b14-bcc7-b08baf75ad0b.Date
+
+relationship da12511a-d950-8c82-006f-499184985d38
+	fromColumn: Budget.Date
+	toColumn: dimDates.Date
+
+relationship 12b11be0-9423-49c2-bb96-2282154e40e7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: order_detail_sr.to_orddate
+	toColumn: LocalDateTable_0088e3fa-6b31-4fa6-bf20-864ce96aa772.Date
+
+relationship 989cde2e-8c3f-aecf-3a72-ec049f612bff
+	fromColumn: order_detail_sr.date
+	toColumn: dimDates.Date
+
+relationship 929578d9-0e1e-1e37-2a3e-70ab0be67ad1
+	fromColumn: order_detail_sr.bi_id
+	toColumn: Brands.bi_id
+
+relationship f00e91ac-e516-47d0-9f52-31fad80b8a78
+	fromColumn: Sales_Budget.brand_id
+	toColumn: Brands.bi_id
+
+relationship 21082f53-2683-10df-bdfe-abfcf98649de
+	fromColumn: Monthly_Forecasts.bi_id
+	toColumn: Brands.bi_id
+
+relationship ecb2c87e-e1f5-4649-3bff-3814cb5702a1
+	fromColumn: Budget.bi_id
+	toColumn: Brands.bi_id
+
+relationship AutoDetected_feec4f63-7b74-4c19-b9c8-d532bf6259b4
+	fromColumn: Open_Orders.bi_id
+	toColumn: Brands.bi_id
+
+relationship 0ab13f78-cc8a-1803-3ee0-d1228e950357
+	fromColumn: FGbyCustQCPendingv4.to_biid
+	toColumn: Brands.bi_id
+
+relationship efa3a61f-5a00-2b9b-aa7f-4b74eaeab8d1
+	fromColumn: FGbyCustv3.to_biid
+	toColumn: Brands.bi_id
+
+relationship AutoDetected_144b4605-43cf-4408-8e0d-72c3303f3b48
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: CRM_Teams.'data.id'
+	toColumn: CRM_Stages.'data.id'
+
+relationship 4edfc9f2-f77c-4b67-a8db-1df4d297c494
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CRM_Leads.'data.create_date.1'
+	toColumn: LocalDateTable_186ef6d2-02f6-4629-9771-4575771e477c.Date
+
+relationship 47c9e885-05ec-4fb9-8a75-677b7d122d87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CRM_Projects.'data.create_date.1'
+	toColumn: LocalDateTable_e82b78c2-4081-48d8-9cd4-0291be25b26b.Date
+
+relationship 008e3956-e244-4575-a0ed-6ba35df3311f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CRM_Leads.'data.last_stage_update.1'
+	toColumn: LocalDateTable_d6e03a1f-d96d-4a93-9076-38b3374dc8dc.Date
+
+relationship ecdbdab1-8385-42f4-9910-9d1260089705
+	fromColumn: Monthly_Forecasts.date
+	toColumn: dimDates.Date
+
+relationship 0fff18a7-dae5-4187-9c62-540a35cfaa1c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: hours_forecast.prod_week
+	toColumn: LocalDateTable_faea66ce-d6e4-4cb1-a3b5-6b6c2d498056.Date
+

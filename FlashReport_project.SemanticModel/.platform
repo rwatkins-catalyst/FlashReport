@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "FlashReport_project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "685f72c6-237a-4e44-9079-075ce7c5a2ba"
+  }
+}

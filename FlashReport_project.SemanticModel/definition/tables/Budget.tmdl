@@ -1,0 +1,299 @@
+table Budget
+	lineageTag: f2989b4f-3d26-4462-9a37-3d841275574d
+
+	column Brand
+		dataType: string
+		lineageTag: 54cc2a82-293e-446c-9a7d-59e4a084bf35
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Rep
+		dataType: string
+		lineageTag: 57f7a76a-4376-403c-bc71-0f716d06b915
+		summarizeBy: none
+		sourceColumn: Sales_Rep
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Rep_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 8dc2623c-8e0c-489b-b932-9f919b7810f7
+		summarizeBy: count
+		sourceColumn: Sales_Rep_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 48c9bfc9-8cc8-4f6c-891a-d05c93e08660
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: dateTime
+		formatString: yyyy-mm
+		lineageTag: 3c69ad27-ec7d-4205-a000-be0d435432d1
+		summarizeBy: none
+		sourceColumn: Month
+
+		variation Variation
+			isDefault
+			relationship: 57caa294-afac-4889-b6d0-0c37927d79f3
+			defaultHierarchy: LocalDateTable_87873b25-8441-4b14-bcc7-b08baf75ad0b.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Orders_Bottles
+		dataType: double
+		formatString: 0
+		lineageTag: 350f406f-250c-4dd3-b202-e91d81500d54
+		summarizeBy: sum
+		sourceColumn: Orders_Bottles
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders_Sales
+		dataType: double
+		lineageTag: 64c107c1-5363-4393-b5cd-09b215282f20
+		summarizeBy: sum
+		sourceColumn: Orders_Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_Materials
+		dataType: double
+		lineageTag: e0493a43-8d99-409b-8a5f-f7f3ca7ca5ad
+		summarizeBy: sum
+		sourceColumn: Orders_Materials
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_Variable_Costs
+		dataType: double
+		lineageTag: ec3a846a-e140-4880-bb01-428bbe7f7cdf
+		summarizeBy: sum
+		sourceColumn: Orders_Variable_Costs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_Fixed_Costs
+		dataType: double
+		lineageTag: 163143b9-d0ea-4a1c-8b59-56b7b2a4a775
+		summarizeBy: sum
+		sourceColumn: Orders_Fixed_Costs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_KG
+		dataType: double
+		lineageTag: b43bd901-b324-4e24-93d8-1e6f84357cef
+		summarizeBy: sum
+		sourceColumn: Orders_KG
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_Matl_Margin
+		dataType: double
+		lineageTag: f4453c48-9fc6-470f-93df-01769137556f
+		summarizeBy: sum
+		sourceColumn: Orders_Matl_Margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_Matl_Margin1
+		dataType: double
+		lineageTag: 2fe39bcb-3cb8-4bb0-95e4-f8e2249cb920
+		summarizeBy: sum
+		sourceColumn: Orders_Matl_Margin1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_VC_Margin
+		dataType: double
+		lineageTag: eb3b8966-6a6a-4b70-bca9-87a86c9b172f
+		summarizeBy: sum
+		sourceColumn: Orders_VC_Margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders_VC_Margin1
+		dataType: double
+		lineageTag: e82a1918-eb68-4d54-92a7-4bba28e554fa
+		summarizeBy: sum
+		sourceColumn: Orders_VC_Margin1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Bottles_Shipped
+		dataType: double
+		lineageTag: 71605ee3-f2e1-4340-bf84-262c2f3e8fdc
+		summarizeBy: sum
+		sourceColumn: Bottles_Shipped
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Sales_Revenue
+		dataType: double
+		lineageTag: a32c1bd5-c963-4838-8f4d-3399079ff45f
+		summarizeBy: sum
+		sourceColumn: Sales_Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Material_Costs
+		dataType: double
+		lineageTag: a2906f85-7145-4a07-9401-1544b61f29dd
+		summarizeBy: sum
+		sourceColumn: Material_Costs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Variable_Costs
+		dataType: double
+		lineageTag: 3394dc0e-f0b1-42ee-8ce1-15d24a64640c
+		summarizeBy: sum
+		sourceColumn: Variable_Costs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fixed_Costs
+		dataType: double
+		lineageTag: 3fd19ae8-5b10-49a8-9608-0adaf2650049
+		summarizeBy: sum
+		sourceColumn: Fixed_Costs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KG_Shipped
+		dataType: double
+		lineageTag: 48dabbc9-de4e-4315-9f68-4d8e802794a6
+		summarizeBy: sum
+		sourceColumn: KG_Shipped
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Matl_Margin
+		dataType: double
+		lineageTag: ddc5f3e9-622f-4beb-a1b4-966ced745986
+		summarizeBy: sum
+		sourceColumn: Matl_Margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Matl_Margin1
+		dataType: double
+		lineageTag: 21b2c93e-7eeb-4419-9fdc-c380fce17c33
+		summarizeBy: sum
+		sourceColumn: Matl_Margin1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VC_Margin
+		dataType: double
+		lineageTag: c61b6f15-4291-49c5-aebc-66a336b249aa
+		summarizeBy: sum
+		sourceColumn: VC_Margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VC_Margin1
+		dataType: double
+		lineageTag: a60a56b9-d877-401e-bc90-5a2e22f16583
+		summarizeBy: sum
+		sourceColumn: VC_Margin1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column bi_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fd176ac-f596-4414-a7b9-6a50897b337c
+		summarizeBy: none
+		sourceColumn: bi_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: a09c0b1f-a626-4aaf-8f7a-f886990bfb06
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: af45c31f-cc1e-4447-a809-4e0abaae2a78
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Budget = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("CATSQL1\CATSQL1"),
+				    ReportData = Source{[Name="ReportData"]}[Data],
+				    dbo_Catalyst_Budget_25_26 = ReportData{[Schema="dbo",Item="Catalyst_Budget_25_26"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_Catalyst_Budget_25_26,{{"Date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,199 @@
+table dimDates
+	lineageTag: b0638f42-9ce0-4a1b-8e43-d6c894dc3c12
+
+	measure ShowMonth =
+			
+			VAR LastMonth = EOMONTH(TODAY(), 0)
+			VAR StartMonth = EOMONTH(LastMonth, -14)
+			RETURN
+			IF (
+			    'dimDates'[MonthStart] >= StartMonth &&
+			    'dimDates'[MonthStart] <= LastMonth,
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 68048214-54da-4ee8-8360-136770ee6a06
+
+	measure LastCompletedMonth = EOMONTH(TODAY(),-1)
+		formatString: General Date
+		lineageTag: 68efab12-a4db-42b2-acd4-29e19e89dca2
+
+	measure MonthStart = STARTOFMONTH('dimDates'[Date])
+		formatString: General Date
+		lineageTag: 5ffe39f3-cde5-4aac-91f3-c45c15a8afdb
+
+	measure current_date_flag = if(DATESBETWEEN(dimDates[Date],date(2026,1,1),TODAY()),1,0)
+		formatString: 0
+		lineageTag: 6e467637-184b-452a-987d-24fbfc76d73f
+
+	column Date
+		formatString: Short Date
+		lineageTag: 2fa1db9e-e7de-411d-a091-65323048fd92
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 8f95b642-b7c6-4526-88bc-5d8dd9ebb1ed
+			defaultHierarchy: LocalDateTable_1cda4e0f-5676-4936-b0b1-fb47ba9104e2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"dimDates","TableItemName":"Month","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column Week = WEEKNUM(dimDates[Date])
+		formatString: 0
+		lineageTag: 4a564a2c-cd41-4256-82fc-9697ca3260e2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month =
+			IF(
+				ISBLANK('dimDates'[Date]),
+				BLANK(),
+				DATE(
+					YEAR('dimDates'[Date]),
+					1 + (MONTH('dimDates'[Date]) - 1),
+					1
+				)
+			)
+		dataType: dateTime
+		formatString: mmmm yyyy
+		lineageTag: b5918d92-f359-442d-8935-d0af8737bda6
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "dimDates"
+				          }
+				        },
+				        "Property": "Date"
+				      }
+				    }
+				  ],
+				  "binningMetadata": {
+				    "binSize": {
+				      "value": 1.0,
+				      "unit": 6
+				    }
+				  }
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"dimDates"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Date"}}],"BinItem":{"Expression":{"Floor":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Date"}},"Size":1.0,"TimeUnit":2}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Quarter = QUARTER(dimDates[Date])
+		formatString: 0
+		lineageTag: 2b83a4cc-78d6-4086-b6b9-f7b70dd0071d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Start Date' = dimDates[Date]+1-WEEKDAY(dimDates[Date],1)
+		formatString: yyyy-mm-dd
+		lineageTag: 5f8036a5-b11e-4967-bcc8-a21e7c974aff
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: a5d41f9c-87df-4538-8675-2ed7c6dcc383
+			defaultHierarchy: LocalDateTable_02c8aca8-3038-4d88-939e-584f9f5df444.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Week End Date' = dimDates[Date]-WEEKDAY(dimDates[Date],1)
+		formatString: General Date
+		lineageTag: bb41edad-ce99-4a90-acf0-1a596c2da465
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 35a59363-bd26-4b61-b787-bee0b5fe4574
+			defaultHierarchy: LocalDateTable_fa699560-9035-4972-bec0-c6ef1dde83bd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = YEAR(dimDates[Date])
+		formatString: 0
+		lineageTag: 6ce9bc2d-0eda-4bf9-b320-2abfba252eef
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week End Date (saturday)' = dimDates[Date]+7-WEEKDAY(dimDates[Date],1)
+		formatString: General Date
+		lineageTag: 458df984-ecf3-4140-8f8a-fbf0519139d7
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 8d0e6752-87e1-474f-af3c-b0f40ed2faec
+			defaultHierarchy: LocalDateTable_4175fb99-8699-426d-907e-2642196fc87b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter & Year' = "Q" & FORMAT('dimDates'[Date], "Q") & " " & FORMAT('dimDates'[Date], "YYYY")
+		dataType: string
+		lineageTag: eb680cc7-5578-41bd-aea3-f6831d65a111
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCompletedMonth = IF(FORMAT('dimDates'[Date], "yyyyMM") < FORMAT(TODAY(), "yyyyMM"), "1", "0")
+		lineageTag: 874c2d81-4989-47ec-8058-2c1e8577c0c4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_date_25_26 = ```
+			
+			IF(
+			    dimDates[Date] >= DATE(2025, 1, 1) && 
+			    dimDates[Date] <= TODAY(),
+			    1,
+			    BLANK()
+			)
+			```
+		formatString: 0
+		lineageTag: dda7df33-7d26-445b-8f1c-9f1e947fda0f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_date_26 = ```
+			
+			IF(
+			    dimDates[Date] >= DATE(2026, 1, 1) && 
+			    dimDates[Date] <= TODAY(),
+			    1,
+			    0
+			)
+			```
+		formatString: 0
+		lineageTag: 35efdbae-df2d-4574-8ec8-41f8f58f2b77
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimDates = calculated
+		mode: import
+		source = CALENDAR(DATE(2023,1,1), DATE(2030,12,31))
+
+	annotation PBI_Id = 1ea1b59a18c54f1a908ccdaa1835ab4b
+

@@ -1,0 +1,7 @@
+role chase
+	modelPermission: read
+
+	tablePermission Orders_Budget = [domain] == "CATALYST\chase"
+
+	annotation PBI_Id = 2991fdfaae70411eaef505f16d5b1618
+

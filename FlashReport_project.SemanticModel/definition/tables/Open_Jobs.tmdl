@@ -1,0 +1,403 @@
+table Open_Jobs
+	lineageTag: ca91d351-b1f4-4430-b88f-239e74b0222b
+
+	measure 'Powder / Shift' = 276000
+		formatString: 0
+		lineageTag: 83af7206-5fb8-4ce1-a961-7bdd8a0c2e8e
+
+	measure 'Capsule / Shift' = 345000
+		formatString: 0
+		lineageTag: 734857b7-a05b-4a7a-b433-5d110e1f6149
+
+	measure 'Stick / Shift' = 1725000
+		formatString: 0
+		lineageTag: aedee55d-371f-44f8-be58-5562e82e197c
+
+	measure 'Gusseted / Shift' = 80500
+		formatString: 0
+		lineageTag: c253adc2-9cd7-41ed-8ff4-2adcff2f16e8
+
+	measure 'Capsule (ALL) / Shift' = 35000000
+		formatString: 0
+		lineageTag: 45cb8d30-5266-4ae3-a86b-d198c4977d6c
+
+	measure month_quantity_category = sum(Open_Jobs[quantity])
+		lineageTag: 834777eb-c91c-4b5f-808e-a776b219f76e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Capacity = ```
+			
+			VAR Category = SELECTEDVALUE('Open_Jobs'[job_category])
+			RETURN
+			SWITCH(
+			    Category,
+			    "Packaging Powder", 276000,
+			    "Packaging Capsule", 345000,
+			    "Packaging Stick Pack", 1725000,
+			    "Packaging Gusset Bags", 80500,
+			    BLANK()  
+			)
+			```
+		formatString: 0
+		lineageTag: 9408bd99-7612-4799-8dcd-d101e9602b32
+
+	measure 'Shifts Required' = ```
+			
+			VAR CategoryShifts = 
+			    SWITCH(
+			        SELECTEDVALUE('Open_Jobs'[job_category]),
+			        "Packaging Capsule", DIVIDE([Capsule_Quantity], 345000),
+			        "Packaging Gusset Bags", DIVIDE([Gusseted_Quantity], 80500),
+			        "Packaging Powder", DIVIDE([Powder_Quantity], 276000),
+			        "Packaging Stick Pack", DIVIDE([Stick_Quantity], 1725000),
+			        "Encapsulation",Divide([Encap_Quantity],35000000),
+			        BLANK()
+			    )
+			VAR RowTotal = 
+			    DIVIDE([Capsule_Quantity], 345000) +
+			    DIVIDE([Gusseted_Quantity], 80500) +
+			    DIVIDE([Powder_Quantity], 276000) +
+			    DIVIDE([Stick_Quantity], 1725000) +
+			    DIVIDE([Encap_Quantity],35000000)
+			RETURN
+			IF(ISINSCOPE('Open_Jobs'[job_category]), CategoryShifts, RowTotal)
+			```
+		lineageTag: 918fbd8e-db59-4816-af2f-d68ed92c5fbd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Gusseted_Quantity =
+			
+			SUMX(
+			    FILTER('Open_Jobs', 'Open_Jobs'[job_category] = "Packaging Gusset Bags"),
+			    'Open_Jobs'[quantity]
+			)
+		lineageTag: 0ae439e7-ba77-4182-8eeb-b3e5254bf512
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Powder_Quantity =
+			
+			SUMX(
+			    FILTER('Open_Jobs', 'Open_Jobs'[job_category] = "Packaging Powder"),
+			    'Open_Jobs'[quantity]
+			)
+		lineageTag: 60c9da4d-bf27-44c5-89b3-0e94207e0a8f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Encap_Quantity =
+			
+			SUMX(
+			    FILTER('Open_Jobs', 'Open_Jobs'[job_category] = "Encapsulation"),
+			    'Open_Jobs'[quantity]
+			)
+		lineageTag: 9ed7f171-015c-437b-8ac5-8b5b173982fd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Capsule_Quantity =
+			
+			SUMX(
+			    FILTER('Open_Jobs', 'Open_Jobs'[job_category] = "Packaging Capsule"),
+			    'Open_Jobs'[quantity]
+			)
+		lineageTag: a97dda26-de1f-46cb-a09f-150c17e36dd3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Stick_Quantity =
+			
+			SUMX(
+			    FILTER('Open_Jobs', 'Open_Jobs'[job_category] = "Packaging Stick Pack"),
+			    'Open_Jobs'[quantity]
+			)
+		lineageTag: 8f27f852-adf7-4a47-b591-5ca007101a2d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column job_num
+		dataType: double
+		isHidden
+		lineageTag: 792b4c43-692d-4d56-bc42-9e2f448334e7
+		summarizeBy: sum
+		sourceColumn: job_num
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column order_num
+		dataType: string
+		isHidden
+		lineageTag: a41f4695-596d-4a12-9471-f7f2d34fe63b
+		summarizeBy: none
+		sourceColumn: order_num
+
+		changedProperty = IsHidden
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: f7d8b4f4-97d3-4df1-a2cb-36e52acfd23f
+		summarizeBy: none
+		sourceColumn: description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_num
+		dataType: string
+		isHidden
+		lineageTag: 3a329cd3-daf1-484a-9576-e0b5a6c82cdf
+		summarizeBy: none
+		sourceColumn: part_num
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: double
+		formatString: #,0
+		lineageTag: d2343e1e-b864-4b60-aa74-fc9397bdb781
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column job_category
+		dataType: string
+		lineageTag: dd30cf89-cd9b-4f28-8018-3a622453f15e
+		summarizeBy: none
+		sourceColumn: job_category
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Open_Jobs","TableItemName":"Type","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column im_category
+		dataType: string
+		isHidden
+		lineageTag: 4e0efa68-26aa-418c-ada0-a2386ad23a1f
+		summarizeBy: none
+		sourceColumn: im_category
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column plan_start
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: f1d0d00b-20a5-4bd5-8c43-0f2e0ced65a7
+		summarizeBy: none
+		sourceColumn: plan_start
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column plan_finish
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 9cc0cf5e-a4ff-4370-9ae5-a1131b2bbcc0
+		summarizeBy: none
+		sourceColumn: plan_finish
+
+		variation Variation
+			isDefault
+			relationship: 2d2032dc-ee4c-46ac-8c80-b646a34fafa8
+			defaultHierarchy: LocalDateTable_67da95ff-3646-40cc-90b6-4f9baafdc1a1.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: d3e83f51-ebff-463e-8405-31d8cbb5266b
+		summarizeBy: none
+		sourceColumn: due_date
+
+		variation Variation
+			isDefault
+			relationship: bbf02256-012b-46b0-8a69-70c92bc07f26
+			defaultHierarchy: LocalDateTable_b97f2453-9261-4470-ae2b-09b319cfbbe6.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column week
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4e549fb7-5d31-4f08-b65c-14fd532637a8
+		summarizeBy: sum
+		sourceColumn: week
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5ef92ad3-3e69-406e-bf8a-fbf2aeef6147
+		summarizeBy: sum
+		sourceColumn: month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 54f99bea-4b7a-4f4b-a56e-6ee790bf069b
+		summarizeBy: sum
+		sourceColumn: year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column closed_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 253b735c-2f9e-4e4c-98bf-bea93d9e94dd
+		summarizeBy: none
+		sourceColumn: closed_date
+
+		variation Variation
+			isDefault
+			relationship: 8d738570-bbc1-41ac-9e2a-75305e211a60
+			defaultHierarchy: LocalDateTable_7b2f6148-c41e-4cf0-b2f1-b79f1d64dc0b.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		isHidden
+		lineageTag: 6acabbf7-f510-412e-93f2-a83c6503122d
+		summarizeBy: none
+		sourceColumn: status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type =
+			SWITCH(
+				TRUE,
+				ISBLANK('Open_Jobs'[job_category]),
+				"(Blank)",
+				'Open_Jobs'[job_category] IN {"Blend Capsules",
+					"Blend Powder",
+					"Blend Stick Pack/Gusseted"},
+				"Blend Capsules & Blend Powder & ...",
+				'Open_Jobs'[job_category]
+			)
+		lineageTag: 7563db6f-71d4-4f9b-b9b5-fec5a9511967
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Open_Jobs"
+				          }
+				        },
+				        "Property": "job_category"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"o","Entity":"Open_Jobs"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"o"}},"Property":"job_category"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Blend Capsules & Blend Powder & ...","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"o"}},"Property":"job_category"}}],"Values":[[{"Literal":{"Value":"'Blend Capsules'"}}],[{"Literal":{"Value":"'Blend Powder'"}}],[{"Literal":{"Value":"'Blend Stick Pack/Gusseted'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: b28077a0-3fce-4aa3-9b6c-d38167412dd6
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_biid
+		dataType: int64
+		formatString: 0
+		lineageTag: 79cb68ef-4c92-48ee-952d-48cbda500943
+		summarizeBy: sum
+		sourceColumn: to_biid
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_diff = if(DATEDIFF(TODAY(),Open_Jobs[plan_start],DAY) < 0 ,1,0)
+		formatString: 0
+		lineageTag: 9af5a7da-c6e4-4d07-8ddc-c47974d86a2f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_diff_test = ```
+			DATEDIFF(TODAY(),Open_Jobs[plan_start],DAY) 
+			```
+		formatString: 0
+		lineageTag: 7d9c8ad4-c013-4faf-88ed-31d53c278340
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column or_exten
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: a0fc34f2-be9f-4473-b428-0efc2ead8e07
+		summarizeBy: sum
+		sourceColumn: or_exten
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Open_Jobs = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_OpenJobs = deacom_replica{[Schema="dbo",Item="Open_Jobs"]}[Data],
+				    #"Replaced Value" = Table.ReplaceValue(dbo_OpenJobs,"Blend Powder","Kilos",Replacer.ReplaceText,{"job_category"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Blend Capsules","Kilos",Replacer.ReplaceText,{"job_category"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","Blend Stick Pack/Gusseted","Kilos",Replacer.ReplaceText,{"job_category"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value2", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

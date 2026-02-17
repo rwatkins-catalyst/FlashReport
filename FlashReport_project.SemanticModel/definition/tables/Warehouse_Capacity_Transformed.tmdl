@@ -1,0 +1,75 @@
+table Warehouse_Capacity_Transformed
+	lineageTag: 723c925e-672d-453f-8dfc-e7c22dc7eb90
+
+	measure fg% = DIVIDE(sum(Warehouse_Capacity[finished goods]),3865,0)
+		lineageTag: b187130e-ebef-444a-a964-e0cec4aaaa13
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure occupied = divide(sum(Warehouse_Capacity_Transformed[Value]),sum(Warehouse_Capacity_Transformed[Value])+sum(Warehouse_Capacity_Transformed[Available_Spaces_2]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b2b459b3-0e4d-4a3c-97bc-c1901e966610
+
+	column Facility
+		dataType: string
+		lineageTag: 260f2b85-9a32-446c-8114-595fed23bae7
+		summarizeBy: none
+		sourceColumn: Facility
+
+		annotation SummarizationSetBy = Automatic
+
+	column Label
+		dataType: string
+		lineageTag: 4d94541b-8676-4378-9399-9cc95e86fa23
+		summarizeBy: none
+		sourceColumn: Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: 33b98a8a-8bff-45e9-b2fd-aace467e7734
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column Available_Spaces
+		dataType: int64
+		formatString: 0
+		lineageTag: eb72bc2a-cc27-43c3-ac14-8ae83e8ce26f
+		summarizeBy: sum
+		sourceColumn: Available_Spaces
+
+		annotation SummarizationSetBy = Automatic
+
+	column Available_Spaces_2 = ```
+			
+			IF(
+			    Warehouse_Capacity_Transformed[Facility] = "Catalyst Nutraceuticals", 
+			    Warehouse_Capacity_Transformed[Available_Spaces], 
+			    BLANK()
+			)
+			```
+		formatString: 0
+		lineageTag: f6d3cc8c-0a71-421b-a4e6-55f7ecb3c675
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Warehouse_Capacity_Transformed = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_wh_capacity_2 = deacom_replica{[Schema="dbo",Item="Warehouse_Capacity_2"]}[Data],
+				    #"Reordered Columns" = Table.ReorderColumns(dbo_wh_capacity_2,{"Label", "Facility", "Value"})
+				in
+				    #"Reordered Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

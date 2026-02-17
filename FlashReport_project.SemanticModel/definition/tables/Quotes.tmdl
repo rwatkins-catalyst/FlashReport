@@ -1,0 +1,255 @@
+table Quotes
+	lineageTag: ea459165-3358-4d7a-8b05-42a9fa7a8b95
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 11873bc1-9802-4801-bebe-e98b5d27141e
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Created_on
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4411a52c-c469-4686-829f-d20ae48c73d6
+		summarizeBy: none
+		sourceColumn: Created_on
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Opportunity_Number
+		dataType: string
+		lineageTag: 2dab8b6d-e1e9-4982-9e6e-a235abc342c8
+		summarizeBy: none
+		sourceColumn: Opportunity_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Preliminary_Quote
+		dataType: string
+		lineageTag: 423e0064-306f-4dfc-b6a1-51215cc0773b
+		summarizeBy: none
+		sourceColumn: Preliminary_Quote
+
+		annotation SummarizationSetBy = Automatic
+
+	column Opportunity
+		dataType: string
+		lineageTag: e62df0b5-644f-4c23-b24d-a3e85b6af514
+		summarizeBy: none
+		sourceColumn: Opportunity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Market_Status
+		dataType: string
+		lineageTag: 4392965a-ec55-4f10-8ea9-e014c11d41e0
+		summarizeBy: none
+		sourceColumn: Market_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Type
+		dataType: string
+		lineageTag: d4478d04-f14b-4bb5-899d-bb7b1beab393
+		summarizeBy: none
+		sourceColumn: Product_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 55161e70-53d3-4ea8-b0c4-aaa9ee775435
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salesperson
+		dataType: string
+		lineageTag: 12d53e6a-5411-4568-adbe-e57c147f78eb
+		summarizeBy: none
+		sourceColumn: Salesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column Priority
+		dataType: string
+		lineageTag: 7fdd1bdb-bf97-454c-b942-c0702cb42721
+		summarizeBy: none
+		sourceColumn: Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column Responsible_User
+		dataType: string
+		lineageTag: ff930c66-890c-4378-84a9-97869f7ecad9
+		summarizeBy: none
+		sourceColumn: Responsible_User
+
+		annotation SummarizationSetBy = Automatic
+
+	column Expected_Closing
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b7b3c6a0-a6f3-42a9-b536-f7c31630d3d7
+		summarizeBy: none
+		sourceColumn: Expected_Closing
+
+		variation Variation
+			isDefault
+			relationship: 32ef992d-b668-46d6-b9d4-db87a916bd89
+			defaultHierarchy: LocalDateTable_6af7d558-fc93-4904-94f2-2a6b61aed805.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Stage
+		dataType: string
+		lineageTag: 9bf07e5a-45a8-4128-b0e1-f44a97dbc2be
+		summarizeBy: none
+		sourceColumn: Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last_Stage_Update
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b19fe994-d6cb-4b10-bc79-3ff7d44482c4
+		summarizeBy: none
+		sourceColumn: Last_Stage_Update
+
+		variation Variation
+			isDefault
+			relationship: 5b27ecc6-fb52-48a0-acef-fd1164a4dbf5
+			defaultHierarchy: LocalDateTable_1fc6483e-9f1c-44d0-82e0-944bbc52d69e.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Is_Won
+		dataType: string
+		lineageTag: 979d951b-175f-4e80-a48b-4f1123477c5c
+		summarizeBy: none
+		sourceColumn: Is_Won
+
+		annotation SummarizationSetBy = Automatic
+
+	column Probability
+		dataType: double
+		lineageTag: 4d899e9d-ee48-431f-8160-d4475a8627c6
+		summarizeBy: sum
+		sourceColumn: Probability
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Lost_Reason
+		dataType: string
+		lineageTag: c5b6c40b-5485-461b-be60-c80fdda30bac
+		summarizeBy: none
+		sourceColumn: Lost_Reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column Top_Line
+		dataType: double
+		lineageTag: 920d29b5-4a6d-4783-ad2a-3121e312c613
+		summarizeBy: sum
+		sourceColumn: Top_Line
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VCM
+		dataType: double
+		lineageTag: 61738364-4b52-4bca-ba54-c2babc0f6272
+		summarizeBy: sum
+		sourceColumn: VCM
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Time_in_Stage
+		dataType: int64
+		formatString: 0
+		lineageTag: 1db32df8-1a92-45e6-80ff-958448206ce5
+		summarizeBy: sum
+		sourceColumn: Time_in_Stage
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Won = IF(Quotes[Is_Won] = "won",1,BLANK())
+		formatString: 0
+		lineageTag: 1afba456-c16e-42f0-b0bf-b6fb77d0c4e9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quote Complete Days' = ```
+			
+			IF(
+			    'Quotes'[Stage] = "Completed", 
+			    DATEDIFF('Quotes'[Created_on], 'Quotes'[Last_Stage_Update], DAY), 
+			    BLANK()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: bad5a273-7fb6-4bd5-b93e-82a9d6ebb09e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIS_Pending = if('Quotes'[Is_Won] = "Pending",'Quotes'[Time_in_Stage],BLANK())
+		formatString: 0
+		lineageTag: 6ba7a951-646b-466a-9e8a-1191fd825644
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is_Won_No_Pending = ```
+			
+			IF ( Quotes[Is_Won] <> "Pending", Quotes[Is_Won], BLANK() )
+			
+			```
+		lineageTag: 7c7595ad-4cf0-4d21-b1e1-65254f0358cb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Quotes = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    OdooData = Source{[Name="OdooData"]}[Data],
+				    dbo_leadopp = OdooData{[Schema="dbo",Item="leadopp"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_leadopp,{{"Created_on", type date}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","won","Won",Replacer.ReplaceText,{"Is_Won"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","lost","Lost",Replacer.ReplaceText,{"Is_Won"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","pending","Pending",Replacer.ReplaceText,{"Is_Won"})
+				in
+				    #"Replaced Value2"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

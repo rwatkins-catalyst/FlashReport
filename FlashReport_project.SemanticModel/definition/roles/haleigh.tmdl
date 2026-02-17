@@ -1,0 +1,7 @@
+role haleigh
+	modelPermission: read
+
+	tablePermission Orders_Budget = [domain] == "CATALYST\haleigh.stokowski"
+
+	annotation PBI_Id = 14231166e185440eb43705a3ad04bf04
+

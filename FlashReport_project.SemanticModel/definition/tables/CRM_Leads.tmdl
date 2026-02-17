@@ -1,0 +1,340 @@
+table CRM_Leads
+	lineageTag: d7f20360-5ff8-41d5-a553-f74327217a3d
+
+	column success
+		dataType: string
+		lineageTag: 91f5c708-0b73-4dac-8fca-de13b63c4f1f
+		summarizeBy: none
+		sourceColumn: success
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: string
+		lineageTag: cfa25637-2912-4c62-a6ed-579cac00e1fe
+		summarizeBy: none
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column limit
+		dataType: string
+		lineageTag: d77c9aa3-c5cf-4d48-bc62-6bf126f49e5a
+		summarizeBy: none
+		sourceColumn: limit
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset
+		dataType: string
+		lineageTag: 93bd1bc2-0e00-494c-a4af-036b2ccff0f2
+		summarizeBy: none
+		sourceColumn: offset
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.id'
+		dataType: string
+		lineageTag: 46a6195a-7d6d-4ad4-ab29-87a4f6e43021
+		summarizeBy: none
+		sourceColumn: data.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.opportunity_number'
+		dataType: string
+		lineageTag: 4f460389-ef44-45f0-a82e-ecb6b1fbf014
+		summarizeBy: none
+		sourceColumn: data.opportunity_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.preliminary_quote'
+		dataType: string
+		lineageTag: 5221a957-e19e-4793-aff2-4d39dbdc847e
+		summarizeBy: none
+		sourceColumn: data.preliminary_quote
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.name'
+		dataType: string
+		lineageTag: ea2ae21e-e2d6-40e0-8f18-ee670d4f231d
+		summarizeBy: none
+		sourceColumn: data.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.market_status'
+		dataType: string
+		lineageTag: 7c060164-29e0-4bf3-af58-d3b52b0bddff
+		summarizeBy: none
+		sourceColumn: data.market_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.product_type'
+		dataType: string
+		lineageTag: fb889435-f39e-463e-b548-c930de0b4b39
+		summarizeBy: none
+		sourceColumn: data.product_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.partner_id'
+		dataType: string
+		lineageTag: 16db7675-43b4-4492-a49d-59be480b2f29
+		summarizeBy: none
+		sourceColumn: data.partner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.partner_name'
+		dataType: string
+		lineageTag: 3895ad38-a92a-470e-bc22-c874b88c6400
+		summarizeBy: none
+		sourceColumn: data.partner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.customer_tier'
+		dataType: string
+		lineageTag: d42b9cb7-d70e-4095-b70f-e9f9daae2549
+		summarizeBy: none
+		sourceColumn: data.customer_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.user_id'
+		dataType: string
+		lineageTag: e709cd54-6cec-45c6-bab0-018dcfa83ffb
+		summarizeBy: none
+		sourceColumn: data.user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.salesperson'
+		dataType: string
+		lineageTag: ce6551c1-2a5d-4ac7-b77f-867b3f1cab16
+		summarizeBy: none
+		sourceColumn: data.salesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.priority'
+		dataType: string
+		lineageTag: 93d9a584-eaa5-4d5d-817c-50733b84bc8a
+		summarizeBy: none
+		sourceColumn: data.priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.created_by'
+		dataType: string
+		lineageTag: 64cfa1f8-f3b9-4492-a373-3277b92604cb
+		summarizeBy: none
+		sourceColumn: data.created_by
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.company_id'
+		dataType: string
+		lineageTag: 6beb9320-11fd-44c5-8523-f392f731238d
+		summarizeBy: none
+		sourceColumn: data.company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.company_name'
+		dataType: string
+		lineageTag: 98c0506b-9982-46aa-9148-731a80a2ee0e
+		summarizeBy: none
+		sourceColumn: data.company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.team_id'
+		dataType: string
+		lineageTag: 90895c5b-ff2f-4ad4-b322-c017d917e478
+		summarizeBy: none
+		sourceColumn: data.team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.team_name'
+		dataType: string
+		lineageTag: 698c5605-f10e-4a8d-91f3-6a959db1c0a1
+		summarizeBy: none
+		sourceColumn: data.team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.date_deadline'
+		dataType: string
+		lineageTag: 12420eae-a818-431b-a73f-bb3f3da6662a
+		summarizeBy: none
+		sourceColumn: data.date_deadline
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.expected_closing'
+		dataType: string
+		lineageTag: d21d1c02-ffa3-4f7c-a865-39bea5de36ac
+		summarizeBy: none
+		sourceColumn: data.expected_closing
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.stage_id'
+		dataType: string
+		lineageTag: 38f04cb4-c6ca-407a-a392-c393da106e76
+		summarizeBy: none
+		sourceColumn: data.stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.stage_name'
+		dataType: string
+		lineageTag: 31667f58-7052-4c54-82ca-79455fce24ae
+		summarizeBy: none
+		sourceColumn: data.stage_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.won_status'
+		dataType: string
+		lineageTag: b53e6e35-4852-4a87-ac8f-65234b68755c
+		summarizeBy: none
+		sourceColumn: data.won_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.probability'
+		dataType: string
+		lineageTag: a63bbeb8-edb8-453d-82b4-05ede8243705
+		summarizeBy: none
+		sourceColumn: data.probability
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.lost_reason'
+		dataType: string
+		lineageTag: da87d4c2-1558-4bd1-9509-864c4cced32c
+		summarizeBy: none
+		sourceColumn: data.lost_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.expected_revenue'
+		dataType: string
+		lineageTag: 4192cae1-b479-474e-9eda-72da05a6cc77
+		summarizeBy: none
+		sourceColumn: data.expected_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.top_line'
+		dataType: string
+		lineageTag: 08e257ea-c9c2-468a-8634-4a91312d27d6
+		summarizeBy: none
+		sourceColumn: data.top_line
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.vcm'
+		dataType: string
+		lineageTag: 12610da9-8733-4d56-8abe-b98bf806d15c
+		summarizeBy: none
+		sourceColumn: data.vcm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.days_in_stage'
+		dataType: string
+		lineageTag: f283358a-ad48-4b7c-a5bc-93deeebf9161
+		summarizeBy: none
+		sourceColumn: data.days_in_stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.active'
+		dataType: string
+		lineageTag: ae8b70f0-0467-4bee-adaf-49f42aec5e7b
+		summarizeBy: none
+		sourceColumn: data.active
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.create_date.1'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1dbbec54-8d81-4136-a6dd-17547c1d1a06
+		summarizeBy: none
+		sourceColumn: data.create_date.1
+
+		variation Variation
+			isDefault
+			relationship: 4edfc9f2-f77c-4b67-a8db-1df4d297c494
+			defaultHierarchy: LocalDateTable_186ef6d2-02f6-4629-9771-4575771e477c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'data.create_date.2'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 5f69a57c-1d3e-400d-a8da-063c73c8556d
+		summarizeBy: none
+		sourceColumn: data.create_date.2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'data.last_stage_update.1'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1f477036-1dfd-45e1-a720-3c63cd582b64
+		summarizeBy: none
+		sourceColumn: data.last_stage_update.1
+
+		variation Variation
+			isDefault
+			relationship: 008e3956-e244-4575-a0ed-6ba35df3311f
+			defaultHierarchy: LocalDateTable_d6e03a1f-d96d-4a93-9076-38b3374dc8dc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'data.last_stage_update.2'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 506790f5-8c14-40a4-bc11-5ba4dc96be9a
+		summarizeBy: none
+		sourceColumn: data.last_stage_update.2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition CRM_Leads = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://catalystnutra.odoo.com/api/crm/leads?limit=1000000&offset=0&active=all&date_from=2023-01-01&date_to=2026-12-31", [Headers=[Authorization="Bearer f4c6df66a094e698a3ab302c2500004e9f8d7bff"]])),
+				    #"Converted to Table" = Table.FromRecords({Source}),
+				    #"Expanded data" = Table.ExpandListColumn(#"Converted to Table", "data"),
+				    #"Expanded data1" = Table.ExpandRecordColumn(#"Expanded data", "data", {"id", "create_date", "opportunity_number", "preliminary_quote", "name", "market_status", "product_type", "partner_id", "partner_name", "customer_tier", "user_id", "salesperson", "priority", "created_by", "company_id", "company_name", "team_id", "team_name", "date_deadline", "expected_closing", "stage_id", "stage_name", "last_stage_update", "won_status", "probability", "lost_reason", "expected_revenue", "top_line", "vcm", "days_in_stage", "active"}, {"data.id", "data.create_date", "data.opportunity_number", "data.preliminary_quote", "data.name", "data.market_status", "data.product_type", "data.partner_id", "data.partner_name", "data.customer_tier", "data.user_id", "data.salesperson", "data.priority", "data.created_by", "data.company_id", "data.company_name", "data.team_id", "data.team_name", "data.date_deadline", "data.expected_closing", "data.stage_id", "data.stage_name", "data.last_stage_update", "data.won_status", "data.probability", "data.lost_reason", "data.expected_revenue", "data.top_line", "data.vcm", "data.days_in_stage", "data.active"}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Expanded data1", "data.create_date", Splitter.SplitTextByDelimiter("T", QuoteStyle.Csv), {"data.create_date.1", "data.create_date.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"data.create_date.1", type date}, {"data.create_date.2", type time}}),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Changed Type", "data.last_stage_update", Splitter.SplitTextByDelimiter("T", QuoteStyle.Csv), {"data.last_stage_update.1", "data.last_stage_update.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"data.last_stage_update.1", type date}, {"data.last_stage_update.2", type time}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

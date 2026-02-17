@@ -1,0 +1,339 @@
+table OTTFP
+	lineageTag: 5c3ac2a7-a5b8-4ce2-9b76-3d9cce303714
+
+	measure PassFailRatio = ```
+			
+			DIVIDE(
+			    SUM('OTTFP'[passfail]), 
+			    COUNTROWS('OTTFP'), 
+			    0
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 10a4e742-6458-46a2-9db3-90a563babeed
+
+	column 'Bill-to Name'
+		dataType: string
+		lineageTag: 2de10c07-afae-4ec4-8c36-3b603f51ad47
+		summarizeBy: none
+		sourceColumn: Bill-to Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Tier'
+		dataType: string
+		lineageTag: 5840bb8a-5301-4d60-82c1-aeacef27160d
+		summarizeBy: none
+		sourceColumn: Customer Tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FG Job'
+		dataType: string
+		isHidden
+		lineageTag: c52be62c-50ba-441f-b3d4-7c35092be5ea
+		summarizeBy: none
+		sourceColumn: FG Job
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Part Description'
+		dataType: string
+		lineageTag: ebaa81e4-10c0-4d49-9b62-4c2e61c33c92
+		summarizeBy: none
+		sourceColumn: Part Description
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"OTTFP","TableItemName":"Part Description (groups)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column 'FG Lot'
+		dataType: string
+		isHidden
+		lineageTag: 15a44630-fbee-4561-b34d-91ccf92239a8
+		summarizeBy: none
+		sourceColumn: FG Lot
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 93da76ca-f126-4560-900e-3a95a2be79c7
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		variation Variation
+			isDefault
+			relationship: 5697f980-f34c-400b-8789-d4235aae3fa4
+			defaultHierarchy: LocalDateTable_574bf30a-d600-4096-8e3d-87803f9a7e0b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orig Promised Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5a189a8e-9009-4529-8fbd-4795d9d17fd2
+		summarizeBy: none
+		sourceColumn: Orig Promised Date
+
+		variation Variation
+			isDefault
+			relationship: 5ae174d2-85a5-4dea-a46c-850072c97db4
+			defaultHierarchy: LocalDateTable_c0f05c87-84d2-41a6-a2e5-f0aee9b907e2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Shipped Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cedec0ed-4050-4b80-9e9f-7ea0f5221c22
+		summarizeBy: none
+		sourceColumn: Shipped Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'QC Clear --> Orig Promised (DAYS)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ddf7358-a2ee-4554-949a-92f22ed6013e
+		summarizeBy: sum
+		sourceColumn: QC Clear --> Orig Promised (DAYS)
+
+		annotation SummarizationSetBy = Automatic
+
+	column passfail
+		dataType: int64
+		formatString: 0
+		lineageTag: c4641c8a-348e-488c-830f-c731249f3126
+		summarizeBy: sum
+		sourceColumn: passfail
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dollars
+		dataType: double
+		lineageTag: 45116a2f-8049-4417-88a5-59be2f61a46b
+		summarizeBy: sum
+		sourceColumn: Dollars
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column reason
+		dataType: string
+		lineageTag: acdcb21b-1eca-496d-93a7-0be15c513ccc
+		summarizeBy: none
+		sourceColumn: reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column changereason
+		dataType: string
+		lineageTag: 693fdf2d-0a61-4718-9627-c5f0c44438c2
+		summarizeBy: none
+		sourceColumn: changereason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column changenote
+		dataType: string
+		isHidden
+		lineageTag: 5757bccc-c0ff-4671-9178-22bebeef2efe
+		summarizeBy: none
+		sourceColumn: changenote
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnTime
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0bc15a01-bb2e-4b91-bda9-715ffb15c9f5
+		summarizeBy: sum
+		sourceColumn: OnTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Part Description (groups)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('OTTFP'[Part Description]),
+				"(Blank)",
+				'OTTFP'[Part Description] IN {"Alani Nutrition Balance 120ct",
+					"Alani Nutrition Creatine Unflavored 30 serv",
+					"Alani Nutrition Energy Stick Pack Breezeberry Bulk",
+					"Alani Nutrition Energy Stick Pack Cosmic Stardust Bulk",
+					"Alani Nutrition Energy Stick Pack Hawaiian Shaved Ice Bulk",
+					"Alani Nutrition Fat Burner 60ct",
+					"Alani Nutrition Fish Oil",
+					"Alani Nutrition Post Hawaiian Shaved Ice 30 serv",
+					"Alani Nutrition Post Workout Sour Peach Rings 30 serv",
+					"Alani Nutrition Prenatal 60ct",
+					"Alani Nutrition Pre-Workout Blue Slush 20 serv",
+					"Alani Nutrition Pre-Workout Blue Slush 30 serv",
+					"Alani Nutrition Pre-Workout Breezeberry 20 serv",
+					"Alani Nutrition Pre-Workout Breezeberry 30 serv",
+					"Alani Nutrition Pre-Workout Cosmic Stardust 20 serv",
+					"Alani Nutrition Pre-Workout Cosmic Stardust 30 serv",
+					"Alani Nutrition Pre-Workout Galaxy Lemonade 30 serv",
+					"Alani Nutrition Pre-Workout Hawaiian Shaved Ice 20 serv",
+					"Alani Nutrition Pre-Workout Hawaiian Shaved Ice 25 serv",
+					"Alani Nutrition Pre-Workout Hawaiian Shaved Ice 30 serv"},
+				"Alani Nutrition Balance 120ct & ...",
+				'OTTFP'[Part Description] IN {"Vibrant Health Gigartina 60ct",
+					"Vibrant Health Green Vibrance 240ct (Version 21)",
+					"Vibrant Health Krebs Zinc 60ct"},
+				"Vibrant Health Gigartina 60ct & ...",
+				'OTTFP'[Part Description]
+			)
+		lineageTag: 9cb904ec-378f-4979-8f34-4cfc1046097e
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "OTTFP"
+				          }
+				        },
+				        "Property": "Part Description"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"o","Entity":"OTTFP"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"o"}},"Property":"Part Description"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Alani Nutrition Balance 120ct & ...","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"o"}},"Property":"Part Description"}}],"Values":[[{"Literal":{"Value":"'Alani Nutrition Balance 120ct'"}}],[{"Literal":{"Value":"'Alani Nutrition Creatine Unflavored 30 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Energy Stick Pack Breezeberry Bulk'"}}],[{"Literal":{"Value":"'Alani Nutrition Energy Stick Pack Cosmic Stardust Bulk'"}}],[{"Literal":{"Value":"'Alani Nutrition Energy Stick Pack Hawaiian Shaved Ice Bulk'"}}],[{"Literal":{"Value":"'Alani Nutrition Fat Burner 60ct'"}}],[{"Literal":{"Value":"'Alani Nutrition Fish Oil'"}}],[{"Literal":{"Value":"'Alani Nutrition Post Hawaiian Shaved Ice 30 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Post Workout Sour Peach Rings 30 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Prenatal 60ct'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Blue Slush 20 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Blue Slush 30 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Breezeberry 20 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Breezeberry 30 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Cosmic Stardust 20 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Cosmic Stardust 30 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Galaxy Lemonade 30 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Hawaiian Shaved Ice 20 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Hawaiian Shaved Ice 25 serv'"}}],[{"Literal":{"Value":"'Alani Nutrition Pre-Workout Hawaiian Shaved Ice 30 serv'"}}]]}}},{"DisplayName":"Vibrant Health Gigartina 60ct & ...","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"o"}},"Property":"Part Description"}}],"Values":[[{"Literal":{"Value":"'Vibrant Health Gigartina 60ct'"}}],[{"Literal":{"Value":"'Vibrant Health Green Vibrance 240ct (Version 21)'"}}],[{"Literal":{"Value":"'Vibrant Health Krebs Zinc 60ct'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Shipped'
+		dataType: int64
+		formatString: 0
+		lineageTag: 33d80dc4-a079-4021-8ee0-8b0093e26795
+		summarizeBy: sum
+		sourceColumn: Week Shipped
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Shipped'
+		dataType: int64
+		formatString: 0
+		lineageTag: 310336d1-cdee-44bd-815c-23f6eb722e9c
+		summarizeBy: sum
+		sourceColumn: Month Shipped
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Shipped'
+		dataType: int64
+		formatString: 0
+		lineageTag: 69b4d1ca-669f-4660-81a6-c29677cb101e
+		summarizeBy: sum
+		sourceColumn: Year Shipped
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b987325-7abd-4697-a2e5-3307b118bb6d
+		summarizeBy: sum
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e2a6ca1-bdaf-4094-9ebf-a1ee35d73ccf
+		summarizeBy: sum
+		sourceColumn: Order Num
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column f2_postref
+		dataType: string
+		lineageTag: 9879fc62-d685-4415-86ee-879684e86b52
+		summarizeBy: none
+		sourceColumn: f2_postref
+
+		annotation SummarizationSetBy = Automatic
+
+	column jo_jobnum
+		dataType: double
+		lineageTag: e22c7004-fc48-447b-a64c-e8175985723a
+		summarizeBy: sum
+		sourceColumn: jo_jobnum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column min_qc
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c84d2c74-e1b4-4b4c-8d97-60af29580759
+		summarizeBy: none
+		sourceColumn: min_qc
+
+		variation Variation
+			isDefault
+			relationship: 853cf1bf-b641-429c-828d-657e62aefffa
+			defaultHierarchy: LocalDateTable_220bf682-ed74-404f-ab4e-a4e9d0052d79.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column sales_rep_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e9ce372-072f-4f51-bd1a-d5d8558e11ea
+		summarizeBy: sum
+		sourceColumn: sales_rep_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Rep'
+		dataType: string
+		lineageTag: 2ca63425-1487-4701-9e1c-b0640a040bda
+		summarizeBy: none
+		sourceColumn: Sales Rep
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OTTFP = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_ottfp_2 = deacom_replica{[Schema="dbo",Item="OTTFP"]}[Data]
+				in
+				    dbo_ottfp_2
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

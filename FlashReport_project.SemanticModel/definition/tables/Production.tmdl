@@ -1,0 +1,106 @@
+table Production
+	lineageTag: 80aeec6c-3200-470d-b7f4-c8ca05419879
+
+	column job_number
+		dataType: double
+		lineageTag: 682ac193-a05b-46a8-a9fb-d9a4aec65817
+		summarizeBy: sum
+		sourceColumn: job_number
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column job_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6846ba29-95b8-4b67-b71b-f71d05de72d1
+		summarizeBy: none
+		sourceColumn: job_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column week
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fc07550-35ac-454c-ba21-e6635e5f9347
+		summarizeBy: sum
+		sourceColumn: week
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: b5d0f115-956e-4a42-bf7e-035043343cfc
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: a9cff305-6a86-4b05-8d95-db98bd776526
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: double
+		lineageTag: 1f168be2-e693-4c87-980d-e1be5f90e419
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column p_w_y_d
+		dataType: string
+		lineageTag: fa25630a-1bb7-4f1b-8236-ef5a0e692857
+		summarizeBy: none
+		sourceColumn: p_w_y_d
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 528ecff2-abea-4672-a49b-42306e4e5472
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStart = STARTOFMONTH('dimDates'[Date])
+		formatString: General Date
+		lineageTag: e2b34231-4ecc-4cc5-83ad-a66e8ea82aa7
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: f07944a7-b060-4dc5-ae85-fa9e5b37bb5b
+			defaultHierarchy: LocalDateTable_7cdd5f02-04be-4c8f-83bd-78219dd0b6b8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Production = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_ProductionQuantity = deacom_replica{[Schema="dbo",Item="Production"]}[Data],
+				    #"Filtered Rows1" = Table.SelectRows(dbo_ProductionQuantity, each true),
+				    #"Filtered Rows" = Table.SelectRows(#"Filtered Rows1", each true),
+				    #"Replaced Value" = Table.ReplaceValue(#"Filtered Rows","Capsule","Capsule Units",Replacer.ReplaceText,{"Type"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Powder","Powder Units",Replacer.ReplaceText,{"Type"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","Total","Total Units",Replacer.ReplaceText,{"Type"})
+				in
+				    #"Replaced Value2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

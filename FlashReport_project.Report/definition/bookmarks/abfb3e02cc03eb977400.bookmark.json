@@ -1,0 +1,484 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "Accounts Receivable",
+  "name": "abfb3e02cc03eb977400",
+  "options": {
+    "targetVisualNames": [
+      "fcd6d44040d2a04636bb"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "850dc8a2bc91ec39d677",
+    "sections": {
+      "850dc8a2bc91ec39d677": {
+        "visualContainers": {
+          "1e34612e2b3363ba86bc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ae140082d539d0f74c87",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "total past due %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "82a16f953217058adf92",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "current %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "06f1a90f985bc92cf339",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "1-30 past due %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "57372831e87fc6a3fbcd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "31-60 past due %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b84e211ce2280ea2932f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "61-90 past due %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "total past due %"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "fcd6d44040d2a04636bb": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c2fd6ef8a579bbb07162",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "a",
+                        "Entity": "Account_Receivable",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "a"
+                                        }
+                                      },
+                                      "Property": "entity"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "entity"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "entity"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "entity"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3a7af2d3c64094344bd0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d22b9e554de57926e57a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "Bill-To"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "71de2021f3bbb6a30b58",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "Last Payment"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6a3c23e0aef180051da3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Account_Receivable"
+                        }
+                      },
+                      "Property": "Terms"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a83f36becc19344dfada",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": "Total Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "43ae97cb78b2e022daf7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": "Total Past Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "35e4bc922c0b71f291d7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": "1-30 Past Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4f2968cb9cfef7ea9b3f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": "31-60 Past Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "692703f67edaca0d94fb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": "61-90 Past Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "26ccdf29cf5a384a08ec",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": "Current Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1adbe3cba851b7bf57ce",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": ">90 Past Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Account_Receivable"
+                            }
+                          },
+                          "Property": "Total Due"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d470dbb955319878a194": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "fc0c29993de119e20083": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

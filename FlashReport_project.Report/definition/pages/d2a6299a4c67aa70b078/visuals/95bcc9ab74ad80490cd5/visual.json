@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "95bcc9ab74ad80490cd5",
+  "position": {
+    "x": 567.44500846023686,
+    "y": 0,
+    "z": 1000,
+    "height": 161.35363790186125,
+    "width": 712.55499153976314,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Catalyst_Budget_25"
+                    }
+                  },
+                  "Property": "SR Actual"
+                }
+              },
+              "queryRef": "Catalyst_Budget_25.SR Actual",
+              "nativeQueryRef": "SR Actual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Catalyst_Budget_25"
+                    }
+                  },
+                  "Property": "SR VC Actual"
+                }
+              },
+              "queryRef": "Catalyst_Budget_25.SR VC Actual",
+              "nativeQueryRef": "SR VC Actual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "BillTo_Tier"
+                    }
+                  },
+                  "Property": "SR Adj Matl"
+                }
+              },
+              "queryRef": "BillTo_Tier.SR Total Matl",
+              "nativeQueryRef": "SR Total Matl"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Catalyst_Budget_25"
+                  }
+                },
+                "Property": "SR Actual"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "isHidden": true
+}

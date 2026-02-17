@@ -1,0 +1,337 @@
+table OTTFP_PO
+	lineageTag: a2959403-c29b-42ce-843c-cd14628380f9
+
+	measure ConfirmRatio_PO = ```
+			
+			DIVIDE(
+			    SUM('OTTFP_PO'[confirm_pass]), 
+			    COUNTROWS('OTTFP_PO'), 
+			    0
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c3bc93f8-7f88-44ad-b6fb-dade4b438fb3
+
+	measure 'On Time %' = ```
+			
+			DIVIDE(
+			    SUM('OTTFP_PO'[passfail]), 
+			    COUNTROWS('OTTFP_PO'), 
+			    0
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2e81affd-e011-411f-b33c-6724a00525ac
+
+	column po#
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c0907b8-3756-4106-8696-2fb331a1da4f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[po#]
+
+		annotation SummarizationSetBy = Automatic
+
+	column part#
+		lineageTag: e38cabf5-b03a-4d18-a628-4ce37fd44718
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[part#]
+
+		annotation SummarizationSetBy = Automatic
+
+	column product#
+		formatString: 0
+		lineageTag: c9c0c007-00d0-474a-8664-04bb10637153
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[product#]
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		lineageTag: 07e4aa34-cb0b-4aca-8e8a-82ce3ae9a324
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[description]
+
+		annotation SummarizationSetBy = Automatic
+
+	column pu_price
+		lineageTag: f5aca96b-5860-4367-a957-f98e164ee518
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[pu_price]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pu_quant
+		lineageTag: 673aee92-9d10-41ff-991b-33ccf1910350
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[pu_quant]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pu_recemn
+		lineageTag: 9b30469b-e330-4948-a35a-43d3b1d9abf3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[pu_recemn]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pu_exten
+		lineageTag: 63404855-cd9e-4a5c-97e8-2c1b0b69bc4f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[pu_exten]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column created_date
+		formatString: General Date
+		lineageTag: 535371f3-38e9-4f00-a414-e5a4de3c4f50
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[created_date]
+
+		variation Variation
+			isDefault
+			relationship: 7a72c188-5b27-4252-b54f-3a768ca259db
+			defaultHierarchy: LocalDateTable_2779d56e-3ddd-4c24-aa26-7d8119cf412a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		formatString: 0
+		lineageTag: c704c205-b3c5-441d-bed9-e88adac11af3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		formatString: 0
+		lineageTag: c9afd893-b361-411a-870c-1c0d0ddc997e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column week
+		formatString: 0
+		lineageTag: 7cf40757-5420-47ac-a18e-86ac6c1ccb2d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[week]
+
+		annotation SummarizationSetBy = Automatic
+
+	column request_date
+		formatString: General Date
+		lineageTag: f53a6734-0849-42c0-a7c9-0a279dcc0d5f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[request_date]
+
+		variation Variation
+			isDefault
+			relationship: bf3cf533-dc0a-410c-b62c-c562bf649b9e
+			defaultHierarchy: LocalDateTable_32c5b556-2bbd-4169-85cc-0e7002dda19a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column promised_date
+		formatString: General Date
+		lineageTag: 5516fed0-f53b-4766-8d71-10edae1fc520
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[promised_date]
+
+		variation Variation
+			isDefault
+			relationship: 7c317e39-68d3-4137-a557-29884b3e9192
+			defaultHierarchy: LocalDateTable_210de68d-6446-4dca-950a-c857a56e74b2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_to_pay
+		formatString: General Date
+		lineageTag: 6c1e97d5-8560-4bac-9166-85e1f798c6bf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[date_to_pay]
+
+		variation Variation
+			isDefault
+			relationship: 975bc74d-42ad-442b-aea4-720b343e0c67
+			defaultHierarchy: LocalDateTable_a59a3e31-1535-4b5f-83bb-41115f841459.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column pay_date
+		formatString: General Date
+		lineageTag: e88d3309-d199-49f8-984c-6f36e3998360
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[pay_date]
+
+		variation Variation
+			isDefault
+			relationship: 9a635478-8554-4925-99f3-dd85d67aabff
+			defaultHierarchy: LocalDateTable_94c96bcb-819c-47e3-bcd0-7be2a9863b8a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		lineageTag: 7c869751-57e3-4d25-a2ef-42d7d0b8de0c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[category]
+
+		annotation SummarizationSetBy = Automatic
+
+	column vendor
+		lineageTag: ededf098-bd4d-4a42-ae6d-b893bff7f7a2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[vendor]
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_date
+		formatString: General Date
+		lineageTag: b6e5930e-2c94-4cb3-a30c-66e8395bb51b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[received_date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_ottfp
+		formatString: 0
+		lineageTag: 84d8315d-08a2-47b5-9534-3fcd43c3b3e6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[days_ottfp]
+
+		annotation SummarizationSetBy = Automatic
+
+	column passfail
+		formatString: #,0
+		lineageTag: 68601c0d-508c-41d2-9e76-e41424fcb4c1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[passfail]
+
+		annotation SummarizationSetBy = Automatic
+
+	column orig_promise
+		lineageTag: 5a615208-e492-4166-b2fd-41ff15c79b1f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[orig_promise]
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_confirm
+		formatString: 0
+		lineageTag: b82e54c2-b626-4fb9-8dd5-c5855743aaf1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[days_confirm]
+
+		annotation SummarizationSetBy = Automatic
+
+	column confirm_pass
+		formatString: 0
+		lineageTag: d5753e5d-90a5-4679-a2eb-711afbc98ecd
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[confirm_pass]
+
+		annotation SummarizationSetBy = Automatic
+
+	column confirm_date
+		formatString: General Date
+		lineageTag: 220ccffc-5cf1-4e6c-b30b-76da055f5e84
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[confirm_date]
+
+		variation Variation
+			isDefault
+			relationship: 14705b4e-166e-42c9-9236-c6b98e5c0729
+			defaultHierarchy: LocalDateTable_5dbadad3-b684-4eda-9071-080a8da6d614.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column saving_% = DIVIDE(SUM(Replacement_Cost[dollars_delta]),sum(Replacement_Cost[rc_spend]),0)/1000
+		formatString: 0.000%;-0.000%;0.000%
+		lineageTag: 31089e7e-d464-49f4-ab7a-3f1adb611120
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column pu_ordman
+		lineageTag: 0188cbd4-6158-4b8d-a81d-c9720107da77
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[pu_ordman]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column buyer
+		lineageTag: f2f3a874-6f86-450d-afd1-ee9987e6713b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[buyer]
+
+		annotation SummarizationSetBy = Automatic
+
+	column paperwork_issues
+		lineageTag: 86051888-c934-46d9-9006-3724bc10fb24
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[paperwork_issues]
+
+		annotation SummarizationSetBy = Automatic
+
+	column physical_issues
+		lineageTag: 1ccc343e-121b-43ce-b5e4-f2b256bbe81d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Replacement_Cost[physical_issues]
+
+		annotation SummarizationSetBy = Automatic
+
+	column adjusted_total_amount
+		lineageTag: eb1cdd5b-4acd-4d14-be3d-ad44c2e1eead
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Replacement_Cost[adjusted_total_amount]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition OTTFP_PO = calculated
+		mode: import
+		source = Replacement_Cost
+
+	annotation PBI_Id = 6297a8222f3749c680efd1966f8ebda7
+

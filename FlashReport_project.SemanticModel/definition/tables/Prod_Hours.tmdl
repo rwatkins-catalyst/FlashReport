@@ -1,0 +1,148 @@
+table Prod_Hours
+	lineageTag: 0a6fdd1e-f6bd-49c9-98dd-e166b87252bb
+
+	column week
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: aa37747b-15fb-4497-a90f-982449b00670
+		summarizeBy: none
+		sourceColumn: week
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f9714c67-3652-497e-a600-77f682a9da0a
+		summarizeBy: sum
+		sourceColumn: month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b033bb19-8ccb-422c-a0aa-04e243d60ffd
+		summarizeBy: sum
+		sourceColumn: year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department
+		dataType: string
+		isHidden
+		lineageTag: bce88884-ebec-4c1f-b3b4-aedda1812ada
+		summarizeBy: none
+		sourceColumn: department
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_quantity
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: b6925849-3bf0-4bb7-8279-5e92440cf3df
+		summarizeBy: sum
+		sourceColumn: total_quantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column hours
+		dataType: double
+		isHidden
+		lineageTag: a9bcebcb-def0-4f0d-be72-912421e60d98
+		summarizeBy: sum
+		sourceColumn: hours
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Type
+		dataType: string
+		lineageTag: d713ca80-4a57-418e-a1c9-927054c2e2c7
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_efficiency
+		dataType: double
+		lineageTag: 1b77cd1f-1bfc-489e-a25b-2cc2c957ee0c
+		summarizeBy: sum
+		sourceColumn: total_efficiency
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column job_date
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 5a60c247-f418-4454-8264-936b98bd1e80
+		summarizeBy: none
+		sourceColumn: job_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week_Group
+		dataType: string
+		isHidden
+		lineageTag: d29ce68e-49ab-4447-a0d1-e2dd5ceede3d
+		summarizeBy: none
+		sourceColumn: Week_Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cat
+		dataType: string
+		lineageTag: e6636cd2-2ac2-4359-8232-7e20442f8cd4
+		summarizeBy: none
+		sourceColumn: cat
+
+		annotation SummarizationSetBy = Automatic
+
+	column code
+		dataType: int64
+		formatString: 0
+		lineageTag: c5bd7c27-a2ed-4347-9fd3-1a66ced85cc5
+		summarizeBy: sum
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Prod_Hours = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("CATSQL1\CATSQL1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_Prod_Hours = deacom_replica{[Schema="dbo",Item="Prod_Hours"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(dbo_Prod_Hours,{{"type", "Type"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

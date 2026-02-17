@@ -1,0 +1,483 @@
+table Replacement_Cost
+	lineageTag: 74f35542-ecf7-48bf-8648-d287bd1aa1e3
+
+	measure 'RepCost2 Last Week' = ```
+			
+			VAR CurrentWeek = WEEKNUM(TODAY(), 2)   
+			VAR CurrentYear = YEAR(TODAY())
+			RETURN
+			    CALCULATE(
+			        SUM(Replacement_Cost[pu_exten]), 
+			        FILTER(
+			            'Replacement_Cost',
+			            YEAR(Replacement_Cost[created_date]) = CurrentYear &&
+			            WEEKNUM(Replacement_Cost[created_date], 2) = CurrentWeek - 1
+			        )
+			    )
+			```
+		lineageTag: 6b535bf3-3a10-4283-8e53-838b6a3aea4c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'RepCost2 MTD' = TOTALMTD(sum(Replacement_Cost[pu_exten]),Replacement_Cost[created_date])
+		lineageTag: b8b29141-1a05-4aac-a89d-001eb6ab2119
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure LW_RC_Spend =
+			
+			VAR CurrentDate = TODAY()
+			VAR PreviousWeekStart = CurrentDate - WEEKDAY(CurrentDate, 2) - 7
+			VAR PreviousWeekEnd = PreviousWeekStart + 6
+			RETURN
+			CALCULATE(
+			    SUM('Replacement_Cost'[rc_spend]),
+			    DATESBETWEEN(
+			        'dimDates'[Date],
+			        PreviousWeekStart,
+			        PreviousWeekEnd
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 9b74a995-5895-45e2-92f6-8d6cf3587b73
+
+	measure LW_Saving% = divide([LW_Dollars_Delta],[LW_RC_Spend]+[LW_Dollars_Delta],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 53fa04f3-fe9c-4a14-88b0-ca4b2d7bb8ee
+
+	measure LW_Dollars_Delta =
+			
+			VAR CurrentDate = TODAY()
+			VAR PreviousWeekStart = CurrentDate - WEEKDAY(CurrentDate, 2) - 7
+			VAR PreviousWeekEnd = PreviousWeekStart + 6
+			RETURN
+			CALCULATE(
+			    SUM('Replacement_Cost'[dollars_delta]),
+			    DATESBETWEEN(
+			        'dimDates'[Date],
+			        PreviousWeekStart,
+			        PreviousWeekEnd
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 513a8803-258a-4694-bcae-b8fe3b064859
+
+	measure 'SAVING %' =
+			
+			VAR SumDollarsDelta = SUM('Replacement_Cost'[dollars_delta])  -- Sum of Dollars Delta
+			VAR SumRCSpend = SUM('Replacement_Cost'[rc_spend])            -- Sum of RC Spend
+			VAR Denominator = SumDollarsDelta + SumRCSpend                    -- Sum of both values
+			
+			RETURN
+			IF(
+			    Denominator = 0,                                              -- Check if denominator is zero
+			    0,                                                            -- Return 0 (or BLANK() if preferred) if denominator is zero
+			    SumDollarsDelta / Denominator                                 -- Perform the division if denominator is not zero
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 64749f2a-6bd4-4d18-a782-535cc5d27ba5
+
+	measure 'RCE WTD' = ```
+			
+			CALCULATE(
+			    SUM(Replacement_Cost[replacement_cost_expectation]),
+			    FILTER(
+			        ALL('dimDates'[Date]),
+			        'dimDates'[Date] >= (TODAY() - WEEKDAY(TODAY(), 2) + 1) &&
+			        dimDates[Date] <= TODAY()
+			    )
+			)
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 44a8e767-a675-45d7-9e49-d1dc1993780e
+
+	measure 'Total Amount WTD' = ```
+			
+			CALCULATE(
+			    SUM(Replacement_Cost[pu_exten]),
+			    FILTER(
+			        ALL('dimDates'[Date]),
+			        'dimDates'[Date] >= (TODAY() - WEEKDAY(TODAY(), 2) + 1) &&
+			        dimDates[Date] <= TODAY()
+			    )
+			)
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7ee1b7cc-dad6-4a43-b789-07e861bbf78d
+
+	measure 'RC Spend WTD' = ```
+			
+			CALCULATE(
+			    SUM(Replacement_Cost[rc_spend]),
+			    FILTER(
+			        ALL('dimDates'[Date]),
+			        'dimDates'[Date] >= (TODAY() - WEEKDAY(TODAY(), 2) + 1) &&
+			        dimDates[Date] <= TODAY()
+			    )
+			)
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: dfa14c57-d648-4d31-84d1-a6d9a0c7dc56
+
+	measure 'Dollars Delta WTD' = ```
+			
+			CALCULATE(
+			    SUM(Replacement_Cost[dollars_delta]),
+			    FILTER(
+			        ALL('dimDates'[Date]),
+			        'dimDates'[Date] >= (TODAY() - WEEKDAY(TODAY(), 2) + 1) &&
+			        dimDates[Date] <= TODAY()
+			    )
+			)
+			
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 46b7e9d2-7f7b-4dfa-922c-52495396b978
+
+	measure 'RC Spend MTD' = TOTALMTD(sum(Replacement_Cost[rc_spend]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 95f352e4-fc5f-4f34-9474-88bbacc2f294
+
+	measure 'RCE MTD' = TOTALMTD(sum(Replacement_Cost[replacement_cost_expectation]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 08cc8fbd-c80e-4a18-a3c1-80cf23f9eabd
+
+	measure 'Total Amount MTD' = TOTALMTD(sum(Replacement_Cost[pu_exten]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 2e5f0494-08a9-41ad-bb0a-52dce1c9670e
+
+	measure 'Dollars Delta MTD' = TOTALMTD(sum(Replacement_Cost[dollars_delta]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 5561ff58-2807-48a4-9365-d17839682a29
+
+	measure 'RC Spend YTD' = TOTALYTD(sum(Replacement_Cost[rc_spend]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 52360293-a167-473d-8a5e-05c70cdbae60
+
+	measure 'Total Amount YTD' = TOTALYTD(sum(Replacement_Cost[pu_exten]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c597c6b2-ed01-4d33-97f7-99618d119609
+
+	measure 'RCE YTD' = TOTALYTD(sum(Replacement_Cost[replacement_cost_expectation]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c56cbe28-65fc-4346-a40f-1dc10ecd025c
+
+	measure 'Dollars Delta YTD' = TOTALYTD(sum(Replacement_Cost[dollars_delta]),dimDates[Date])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f576ad64-c61b-4955-9372-3585ca9013d6
+
+	column po#
+		dataType: double
+		lineageTag: 2b60ed79-6b01-4fea-9391-8a3b150b6855
+		summarizeBy: sum
+		sourceColumn: po#
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column part#
+		dataType: string
+		lineageTag: df5cdfd9-7946-48f6-a2aa-7b130c7c206a
+		summarizeBy: none
+		sourceColumn: part#
+
+		annotation SummarizationSetBy = Automatic
+
+	column product#
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ccfe3cd-0a22-4a97-9358-fa930344e99f
+		summarizeBy: sum
+		sourceColumn: product#
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 0bab1b2f-9e93-45ca-83cd-86797c042dab
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column pu_price
+		dataType: double
+		lineageTag: 4e2cbb1b-a9e9-4472-a74a-07639ef4deae
+		summarizeBy: sum
+		sourceColumn: pu_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pu_quant
+		dataType: double
+		lineageTag: cbadd34e-592d-4bb5-a58d-80f6b1a329c0
+		summarizeBy: sum
+		sourceColumn: pu_quant
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pu_ordman
+		dataType: double
+		lineageTag: 2028a146-9ed6-42df-a778-31c22880491c
+		summarizeBy: sum
+		sourceColumn: pu_ordman
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pu_recemn
+		dataType: double
+		lineageTag: 018a148c-2673-4648-ac99-555bfbf05f95
+		summarizeBy: sum
+		sourceColumn: pu_recemn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pu_exten
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f54d4ea3-f895-49af-93e8-5fd809e858dc
+		summarizeBy: sum
+		sourceColumn: pu_exten
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4cdf24b9-8147-4697-a983-8672f0e3f640
+		summarizeBy: none
+		sourceColumn: created_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b703527-fcd8-43e7-b9fe-2b6f9a9252da
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 171c7115-fcaf-4c30-8aee-e8708e7dc2e9
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column week
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ec1009f-c4fa-4ae6-a776-23f9cfebcf56
+		summarizeBy: sum
+		sourceColumn: week
+
+		annotation SummarizationSetBy = Automatic
+
+	column request_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: da6093b6-06c0-4e7f-8612-f9ece0a823b2
+		summarizeBy: none
+		sourceColumn: request_date
+
+		variation Variation
+			isDefault
+			relationship: b876d7c6-f87a-4ce2-9c67-ae43c0eba79a
+			defaultHierarchy: LocalDateTable_51b1af4d-a94c-4c2e-9a05-2a89ec968e54.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column promised_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ff2290c7-c94e-4f89-bdb7-75c52c938e47
+		summarizeBy: none
+		sourceColumn: promised_date
+
+		variation Variation
+			isDefault
+			relationship: a8edf251-f5f3-407f-942a-7ceb59486c11
+			defaultHierarchy: LocalDateTable_58ea8280-7799-4a77-8194-63ea4cf6c0da.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column orig_promise
+		dataType: string
+		lineageTag: 6a4707e3-d1e1-4b32-bc5a-2d33b5686bb6
+		summarizeBy: none
+		sourceColumn: orig_promise
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ecbfcce1-f359-4de5-993e-08af7d4db833
+		summarizeBy: none
+		sourceColumn: received_date
+
+		variation Variation
+			isDefault
+			relationship: 4e64435f-eb78-41fe-b085-691404688d8a
+			defaultHierarchy: LocalDateTable_c2f6425c-8c4e-4756-a839-bf093f3a3c3d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_to_pay
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8c624fc8-d43c-4a90-b3ac-b7f14cfb49b1
+		summarizeBy: none
+		sourceColumn: date_to_pay
+
+		variation Variation
+			isDefault
+			relationship: 1daf410e-c3e4-49fb-bf4b-65e436b7d70f
+			defaultHierarchy: LocalDateTable_3ec904db-0130-4aba-bb62-55f3aa7c6f1e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column pay_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2f8d5c3a-8b5b-452e-bc2d-62e1c3f6a7a1
+		summarizeBy: none
+		sourceColumn: pay_date
+
+		variation Variation
+			isDefault
+			relationship: 75c0adf1-da89-4cd0-9038-c34b9ff1b871
+			defaultHierarchy: LocalDateTable_d3a67065-931f-4aad-96d5-3b2664e0dfb6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 55fe0700-4a0f-41f5-9146-1e5f9051f234
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column confirm_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0ae47841-4cc6-4ea0-8724-04d5a1143ddf
+		summarizeBy: none
+		sourceColumn: confirm_date
+
+		variation Variation
+			isDefault
+			relationship: bb5ec34c-a1c9-480e-a634-2ae882700b26
+			defaultHierarchy: LocalDateTable_2baffa38-a84b-43b2-a911-c0ee2e242194.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_ottfp
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a8562ee-f1a1-4ce6-974a-2b17b029e5ed
+		summarizeBy: sum
+		sourceColumn: days_ottfp
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_confirm
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ff19047-8c7c-4cc3-9eef-3a72c7b8a78e
+		summarizeBy: sum
+		sourceColumn: days_confirm
+
+		annotation SummarizationSetBy = Automatic
+
+	column confirm_pass
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d0bcc9f-b4f1-41c4-8918-2a6f67a7d3b1
+		summarizeBy: sum
+		sourceColumn: confirm_pass
+
+		annotation SummarizationSetBy = Automatic
+
+	column passfail
+		dataType: int64
+		formatString: 0
+		lineageTag: 694e07d3-4201-4411-b3b7-6311d3287d70
+		summarizeBy: sum
+		sourceColumn: passfail
+
+		annotation SummarizationSetBy = Automatic
+
+	column vendor
+		dataType: string
+		lineageTag: 5a4e09c0-b098-4ae8-87bd-ca2da3efbd54
+		summarizeBy: none
+		sourceColumn: vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column buyer
+		dataType: string
+		lineageTag: 3ab9b50f-ad16-41f7-9234-91e5e02d73a4
+		summarizeBy: none
+		sourceColumn: buyer
+
+		annotation SummarizationSetBy = Automatic
+
+	column paperwork_issues
+		dataType: string
+		lineageTag: 49c45a67-c5c3-4ad7-9b8b-7a141d4afcd7
+		summarizeBy: none
+		sourceColumn: paperwork_issues
+
+		annotation SummarizationSetBy = Automatic
+
+	column physical_issues
+		dataType: string
+		lineageTag: f53666e5-c6cf-4538-b84c-18beadbc2d56
+		summarizeBy: none
+		sourceColumn: physical_issues
+
+		annotation SummarizationSetBy = Automatic
+
+	column adjusted_total_amount
+		dataType: double
+		lineageTag: 9b4ab4dc-428b-4443-a466-79f8e58f2b63
+		summarizeBy: sum
+		sourceColumn: adjusted_total_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Replacement_Cost = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_replacementcosttemp2 = deacom_replica{[Schema="dbo",Item="Replacement_Cost"]}[Data]
+				in
+				    dbo_replacementcosttemp2
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

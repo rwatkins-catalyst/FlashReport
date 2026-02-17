@@ -1,0 +1,277 @@
+table Account_Receivable
+	lineageTag: 65c68584-a8dd-4e2e-921d-0a2e40983f9e
+
+	measure 'total past due %' = divide(sum(Account_Receivable[Total Past Due]),sum(Account_Receivable[Total Due]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2426b49e-eefb-46cb-9185-63a44152a239
+
+	measure 'current %' = divide(sum(Account_Receivable[Current Due]),sum(Account_Receivable[Total Due]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 807d5339-594d-4760-b5dc-e53e73cc96c0
+
+	measure '1-30 past due %' = divide(sum(Account_Receivable[1-30 Past Due]),sum(Account_Receivable[Total Due]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3279fd7c-f2e9-4445-b279-e4c5d5b16374
+
+	measure '31-60 past due %' = divide(sum(Account_Receivable[31-60 Past Due]),sum(Account_Receivable[Total Due]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 760c1944-bb76-4a9f-9c20-ba9b2924ae6f
+
+	measure '61-90 past due %' = divide(sum(Account_Receivable[61-90 Past Due]),sum(Account_Receivable[Total Due]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 19ead32b-6759-4f18-ae19-ed8b2684e996
+
+	measure 'Total Past Due_sum' = if(sum(Account_Receivable[Total Past Due]) = 0,0, sum(Account_Receivable[Total Past Due]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 07d59516-612b-46de-9b1d-18dae2446054
+
+	measure '1-30 Past Due_sum' = if(sum(Account_Receivable[1-30 Past Due]) = 0,0, sum(Account_Receivable[1-30 Past Due]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5114c419-6354-4203-b909-8b8e6388ae86
+
+	measure '31-60 Past Due_sum' = if(sum(Account_Receivable[31-60 Past Due]) = 0,0, sum(Account_Receivable[31-60 Past Due]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 4a80a746-a2ac-44ce-9457-ba821d58ff04
+
+	measure '61-90 Past Due_sum' = if(sum(Account_Receivable[61-90 Past Due]) = 0,0, sum(Account_Receivable[61-90 Past Due]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3ae71be2-8003-4d4b-9568-4ed9242182b6
+
+	measure '>90 Past Due_sum' = if(sum(Account_Receivable[>90 Past Due]) = 0,0, sum(Account_Receivable[>90 Past Due]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 88932bcd-2d2f-40ef-aca8-bc1696ff83e0
+
+	column Bill-To
+		dataType: string
+		lineageTag: 387008f7-5598-4fb7-8b2a-23ed03364990
+		summarizeBy: none
+		sourceColumn: Bill-To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Due'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 79456ec1-1a11-478f-a6c0-616477b92a1d
+		summarizeBy: sum
+		sourceColumn: Total Due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Current Week Due'
+		dataType: double
+		lineageTag: 2f6e2fc2-9f7f-4cf7-86c3-6308564de8ee
+		summarizeBy: sum
+		sourceColumn: Current Week Due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Past Due'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: b1fc8811-fa1d-487a-88f2-7e5db5f4f935
+		summarizeBy: sum
+		sourceColumn: Total Past Due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column '1-30 Past Due'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 055cd50f-7d61-4bdc-bc5e-d0c180235e02
+		summarizeBy: sum
+		sourceColumn: 1-30 Past Due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column '31-60 Past Due'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 62060afb-8435-43e1-964e-224b0da45f1c
+		summarizeBy: sum
+		sourceColumn: 31-60 Past Due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column '61-90 Past Due'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 293a4148-4a2d-4760-8ad4-702d52cd5ef5
+		summarizeBy: sum
+		sourceColumn: 61-90 Past Due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Credit Limit'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 33417a43-910b-428a-9e02-910a6d90463f
+		summarizeBy: sum
+		sourceColumn: Credit Limit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Highest Credit'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 2369ff9f-9c8c-4382-aee4-4d2bd288bc30
+		summarizeBy: sum
+		sourceColumn: Highest Credit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Last Shipment'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 66435b3a-953d-4b10-b4c1-f3e26ffa6109
+		summarizeBy: none
+		sourceColumn: Last Shipment
+
+		variation Variation
+			isDefault
+			relationship: 0a8173d8-9c85-44e0-b0ba-f5b79b814734
+			defaultHierarchy: LocalDateTable_3f65f4cb-6c50-4903-9373-a4bb362d8039.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Payment'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 62261ed4-b2af-489d-bc37-a646ef7862d1
+		summarizeBy: none
+		sourceColumn: Last Payment
+
+		variation Variation
+			isDefault
+			relationship: d3c2eaa9-1835-45fc-9845-d5ec8e0bb822
+			defaultHierarchy: LocalDateTable_6e3329e1-b485-4894-b908-31335a1a3848.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Average Days to Payment'
+		dataType: int64
+		formatString: 0
+		lineageTag: ea82b448-2e33-4e63-a9eb-4213e3ab0564
+		summarizeBy: sum
+		sourceColumn: Average Days to Payment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Available Credit'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f829cd81-6b01-4146-95c7-f473fb2bc1e4
+		summarizeBy: sum
+		sourceColumn: Available Credit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Terms
+		dataType: string
+		lineageTag: 5d35cb9c-3d90-4193-bf54-d7f5e2719ad3
+		summarizeBy: none
+		sourceColumn: Terms
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Due'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 3c58e6d0-c948-4a0c-a28c-73a44012e822
+		summarizeBy: sum
+		sourceColumn: Current Due
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Due %'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2f428730-8b4f-4e12-8316-3ef503b64bbf
+		summarizeBy: sum
+		sourceColumn: Current Due %
+
+		annotation SummarizationSetBy = Automatic
+
+	column '>30 Past Due'
+		dataType: double
+		lineageTag: f42fd47a-518c-4ef1-a9be-4a8596bd4216
+		summarizeBy: sum
+		sourceColumn: >30 Past Due
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Manufacturing Facilty'
+		dataType: string
+		lineageTag: df62e0c9-0a05-4eb1-b2c8-88042a9d6527
+		summarizeBy: none
+		sourceColumn: Manufacturing Facilty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manufactuer
+		dataType: string
+		lineageTag: 3db367da-26ea-48aa-8f23-99278bfe4242
+		summarizeBy: none
+		sourceColumn: Manufactuer
+
+		annotation SummarizationSetBy = Automatic
+
+	column '>90 Past Due'
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8127646d-8138-459a-8244-18f98839cd57
+		summarizeBy: sum
+		sourceColumn: >90 Past Due
+
+		annotation SummarizationSetBy = Automatic
+
+	column entity
+		dataType: string
+		lineageTag: 75625663-a870-4c23-8504-cab2385e9c02
+		summarizeBy: none
+		sourceColumn: entity
+
+		annotation SummarizationSetBy = Automatic
+
+	column s1_name
+		dataType: string
+		lineageTag: d091db68-f54e-4287-ba23-515de186bc53
+		summarizeBy: none
+		sourceColumn: s1_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Account_Receivable = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_account_rec = deacom_replica{[Schema="dbo",Item="Account_Receivable"]}[Data]
+				in
+				    dbo_account_rec
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

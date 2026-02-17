@@ -1,0 +1,252 @@
+table FGbyCustQCPendingv4
+	lineageTag: 1aa268de-0c99-4ab4-90e3-029f28cc45c7
+
+	column customer
+		dataType: string
+		lineageTag: 4eef5ceb-21b3-46c8-bc98-51543c6e41ea
+		summarizeBy: none
+		sourceColumn: customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'customer po'
+		dataType: string
+		lineageTag: 8258a8e7-1b4d-4ed1-bd41-ee0d385205ca
+		summarizeBy: none
+		sourceColumn: customer po
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'so num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 667069f4-ceb6-4ab0-8c20-7023193cd4a0
+		summarizeBy: sum
+		sourceColumn: so num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'due to ship'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: abe7a85f-26ff-4bf8-b9c2-a6cca48fe5e3
+		summarizeBy: none
+		sourceColumn: due to ship
+
+		variation Variation
+			isDefault
+			relationship: e864a038-fd10-45cc-87b2-1518955f8efa
+			defaultHierarchy: LocalDateTable_2bb93156-25ff-4565-ad2c-026327e5b72b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orig Promised'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 278cf595-d587-4174-86b2-1b0f68463655
+		summarizeBy: none
+		sourceColumn: Orig Promised
+
+		variation Variation
+			isDefault
+			relationship: 00206931-6b15-4467-90f7-16fa23f9c7eb
+			defaultHierarchy: LocalDateTable_dfb71d2e-bb4d-4b1b-8a3a-84003dad6693.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'job num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cac48ca-f398-4490-9411-3c480a171959
+		summarizeBy: sum
+		sourceColumn: job num
+
+		annotation SummarizationSetBy = Automatic
+
+	column pr_codenum
+		dataType: string
+		lineageTag: d4bf4209-12b7-467a-ba32-b7b8374fbbe9
+		summarizeBy: none
+		sourceColumn: pr_codenum
+
+		annotation SummarizationSetBy = Automatic
+
+	column pr_descrip
+		dataType: string
+		lineageTag: 5f0243df-89b6-4f39-abf4-3d52189f0d20
+		summarizeBy: none
+		sourceColumn: pr_descrip
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'user lot'
+		dataType: string
+		lineageTag: 6f56713d-dbeb-4751-afe2-119217e5cea4
+		summarizeBy: none
+		sourceColumn: user lot
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'expiration date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b13a4cdb-f596-4f93-88ee-ba92901b67de
+		summarizeBy: none
+		sourceColumn: expiration date
+
+		variation Variation
+			isDefault
+			relationship: 70bcbdff-8c36-4c16-bdc5-671047ba45eb
+			defaultHierarchy: LocalDateTable_353b5ecc-9e35-4d34-93e3-623f1364054c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column qcdays
+		dataType: int64
+		formatString: 0
+		lineageTag: f236c006-5a31-40fd-96c8-ac68bdc1b808
+		summarizeBy: sum
+		sourceColumn: qcdays
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QC Notes'
+		dataType: string
+		lineageTag: 85bd5888-0f7c-4e10-8c89-f5db10f06590
+		summarizeBy: none
+		sourceColumn: QC Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Analytical Notes'
+		dataType: string
+		lineageTag: 22e83c6c-1505-4b57-844a-deafea13d19a
+		summarizeBy: none
+		sourceColumn: Analytical Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Anticipated QC Clear Date'
+		dataType: string
+		lineageTag: 84aa1115-a6df-4020-9852-c362c19c2e25
+		summarizeBy: none
+		sourceColumn: Anticipated QC Clear Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total onhand'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 03cc6c80-ff1d-42fe-8b54-d62888a88731
+		summarizeBy: sum
+		sourceColumn: total onhand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total cogs'
+		dataType: double
+		lineageTag: b90fc03b-cc44-45dd-8182-d31cb8f20754
+		summarizeBy: sum
+		sourceColumn: total cogs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'unit price'
+		dataType: double
+		lineageTag: b589c274-8041-47aa-abd6-676af3ff7aa5
+		summarizeBy: sum
+		sourceColumn: unit price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'total revenue'
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7735c571-80b3-4b8f-a052-5edcc33d6442
+		summarizeBy: sum
+		sourceColumn: total revenue
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'margin %'
+		dataType: double
+		lineageTag: 626a2aa3-3f50-4600-8f07-dfb886c22d58
+		summarizeBy: sum
+		sourceColumn: margin %
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Days_Ready
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f4d5c35-bccb-42ca-9348-ad77a92e6a3c
+		summarizeBy: sum
+		sourceColumn: Days_Ready
+
+		annotation SummarizationSetBy = Automatic
+
+	column 21+
+		dataType: string
+		lineageTag: 6b17a1f0-989f-4d46-960e-b0a05ea576a2
+		summarizeBy: none
+		sourceColumn: 21+
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QC Status'
+		dataType: string
+		lineageTag: 05889f04-6109-4683-b646-9036fefd7c7f
+		summarizeBy: none
+		sourceColumn: QC Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordertype
+		dataType: string
+		lineageTag: e8424dd0-741d-4674-8e2a-1c0eb84b096b
+		summarizeBy: none
+		sourceColumn: ordertype
+
+		annotation SummarizationSetBy = Automatic
+
+	column exclude_from_backlog
+		dataType: int64
+		formatString: 0
+		lineageTag: bba318fb-9a82-4d8e-b0ac-632c13d7b9ef
+		summarizeBy: sum
+		sourceColumn: exclude_from_backlog
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_biid
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ea0c1ff-a1b5-492d-a1a9-5b6f30912e77
+		summarizeBy: none
+		sourceColumn: to_biid
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FGbyCustQCPendingv4 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_FGbyCustQCPendingv4 = deacom_replica{[Schema="dbo",Item="FGbyCustQCPendingv4"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_FGbyCustQCPendingv4,{{"so num", Int64.Type}, {"job num", Int64.Type}, {"user lot", type text}, {"total onhand", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

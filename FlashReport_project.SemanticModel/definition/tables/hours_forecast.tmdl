@@ -1,0 +1,87 @@
+table hours_forecast
+	lineageTag: e5a51c67-5f28-4c0a-92c9-dc7cbff1f656
+
+	column prod_week
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4e3f8d40-2e1e-4d21-9954-be33d61b62a6
+		summarizeBy: none
+		sourceColumn: prod_week
+
+		variation Variation
+			isDefault
+			relationship: 0fff18a7-dae5-4187-9c62-540a35cfaa1c
+			defaultHierarchy: LocalDateTable_faea66ce-d6e4-4cb1-a3b5-6b6c2d498056.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Department
+		dataType: string
+		lineageTag: ee3211c0-1a60-4225-9195-12cf8c7f8b29
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Regular_Hours
+		dataType: double
+		lineageTag: 9663e599-08ba-4edd-acad-4246044f726a
+		summarizeBy: sum
+		sourceColumn: Regular_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Overtime_Hours
+		dataType: double
+		lineageTag: 609e92b7-8ff8-4bc7-adb8-e021ea5554f6
+		summarizeBy: sum
+		sourceColumn: Overtime_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Total_Hours_Worked
+		dataType: double
+		lineageTag: 5da72170-77f9-474b-ae33-79c7ac350fad
+		summarizeBy: sum
+		sourceColumn: Total_Hours_Worked
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Regular_Forecast
+		dataType: double
+		lineageTag: 1f694f68-bda9-4811-bcfe-1effc5b451c2
+		summarizeBy: sum
+		sourceColumn: Regular_Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Overtime_Forecast
+		dataType: double
+		lineageTag: 0df15d50-925f-4cdb-a203-05c1c3ce2c06
+		summarizeBy: sum
+		sourceColumn: Overtime_Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition hours_forecast = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    ReportData = Source{[Name="ReportData"]}[Data],
+				    dbo_hours_forecast = ReportData{[Schema="dbo",Item="hours_forecast"]}[Data]
+				in
+				    dbo_hours_forecast
+

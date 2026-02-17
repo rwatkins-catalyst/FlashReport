@@ -1,0 +1,7 @@
+role frank
+	modelPermission: read
+
+	tablePermission Orders_Budget = [domain] == "CATALYST\frank.johnson"
+
+	annotation PBI_Id = 2465f0a88a01425eb6e93318fe3c3950
+

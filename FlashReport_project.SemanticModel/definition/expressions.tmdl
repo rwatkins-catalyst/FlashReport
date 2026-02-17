@@ -1,0 +1,14 @@
+expression Warehouse_Capacity_2 =
+		let
+		    Source = Sql.Databases("catsql1\catsql1"),
+		    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+		    dbo_Warehouse_Capacity_2 = deacom_replica{[Schema="dbo",Item="Warehouse_Capacity_2"]}[Data],
+		    #"Reordered Columns" = Table.ReorderColumns(dbo_Warehouse_Capacity_2,{"Value", "Label", "Facility", "Available_Spaces"})
+		in
+		    #"Reordered Columns"
+	lineageTag: 25d25d63-aa96-43e0-b943-32d64ed06aab
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

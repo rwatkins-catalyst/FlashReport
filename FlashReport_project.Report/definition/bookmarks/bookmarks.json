@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "05014e697e5a3c97872a",
+      "displayName": "Production Trends",
+      "children": [
+        "6bd3c2f283d98db250ba",
+        "58120aba1d2e81c8ea1b",
+        "d9a1159f9991da024634",
+        "f62e8529afd382779760"
+      ]
+    },
+    {
+      "name": "11150c7db6753bea77e5",
+      "displayName": "Production Forecast",
+      "children": [
+        "ca35639596e3860e80fe",
+        "a41bf4ba5c99ad9620ea",
+        "5a2daf9a0b5c6e527bd9",
+        "3ad437005c9e15d1071e",
+        "59b88b044c0a5042c761"
+      ]
+    },
+    {
+      "name": "c0fbb987849741ac4178",
+      "displayName": "OTTFP",
+      "children": [
+        "b071ec56614bbcda0759",
+        "98c75e1bb3ada12ce244",
+        "c1cc201835a38c060325"
+      ]
+    },
+    {
+      "name": "37fdf74cb3c1625e7fd8",
+      "displayName": "Orders",
+      "children": [
+        "844db89380e50b16bb06",
+        "d5b13f67a609a5470b01",
+        "3b2bf17da14577aa33d5",
+        "7be6566e959548fc8596",
+        "104bdfc3f4a0d891a1f2"
+      ]
+    },
+    {
+      "name": "82c4cba5c6571b7e459a",
+      "displayName": "Revenue",
+      "children": [
+        "1064f1a29be864106a48",
+        "6527842b488068e518d8",
+        "e38fcee85ac8f9dba34b",
+        "bebe20d22c8793f71e6f",
+        "1f15f51505c1fed66d5e"
+      ]
+    },
+    {
+      "name": "dbb0d53197b245cb0ab0"
+    },
+    {
+      "name": "c4de6b5357305071aaea",
+      "displayName": "Procurement",
+      "children": [
+        "0a6f09488410512ac6e7",
+        "fc719256e01701dcc27c"
+      ]
+    },
+    {
+      "name": "7c8d5b7d53a010360801",
+      "displayName": "Backlog",
+      "children": [
+        "e21dd8c51d5cb59e7c81",
+        "c2d330c70600887798ab",
+        "3510a831ce049b29b693"
+      ]
+    },
+    {
+      "name": "abfb3e02cc03eb977400"
+    },
+    {
+      "name": "2a8067fd20551c08bc5a",
+      "displayName": "Sales Rep",
+      "children": [
+        "3d92ecccabd7cf6bccc2",
+        "1ddaee1f97ce0cc958ed",
+        "660db70698bcd3a06e49"
+      ]
+    },
+    {
+      "name": "103c3b38a166a00da977",
+      "displayName": "Quotes",
+      "children": [
+        "7faa08910160280d1c4c",
+        "36f3c7d05300e0c34c03"
+      ]
+    }
+  ]
+}

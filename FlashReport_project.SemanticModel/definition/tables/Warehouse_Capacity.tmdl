@@ -1,0 +1,104 @@
+table Warehouse_Capacity
+	lineageTag: 16a2efd8-7d32-4b87-aa7b-d3ec809602b1
+
+	measure 'FG Available' = 3865 - sum(Warehouse_Capacity[finished goods])
+		formatString: 0.000
+		lineageTag: eb1581b6-8cc1-4a08-8838-9ce8c5741660
+
+	measure 'Packaging Available' = 3587- sum(Warehouse_Capacity[packaging])
+		formatString: 0
+		lineageTag: d8ddadf4-6406-42e6-98c6-9eb8e0f5c0c6
+
+	measure 'Quarantine Available' = 98 - sum(Warehouse_Capacity[quarantine])
+		formatString: 0
+		lineageTag: 27809381-9777-4fdb-adf1-a220476ad537
+
+	measure 'RM Available' = 2697 - sum(Warehouse_Capacity[raw materials ])
+		formatString: 0
+		lineageTag: c2dea3b8-fbc2-40f8-be66-20fa762dbd70
+
+	column facility
+		dataType: string
+		lineageTag: 239c50ef-5f54-4c97-ad79-bd03d41ce643
+		summarizeBy: none
+		sourceColumn: facility
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total spaces'
+		dataType: int64
+		formatString: 0
+		lineageTag: cf83591f-3849-45bc-bd01-1b54e59a01d5
+		summarizeBy: sum
+		sourceColumn: total spaces
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total available'
+		dataType: int64
+		formatString: 0
+		lineageTag: ac3c38bf-95ca-4202-9a8f-f123f08515e1
+		summarizeBy: sum
+		sourceColumn: total available
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total occupied'
+		dataType: int64
+		formatString: 0
+		lineageTag: 83d610c3-db48-430c-a79d-d730e28eb014
+		summarizeBy: sum
+		sourceColumn: total occupied
+
+		annotation SummarizationSetBy = Automatic
+
+	column packaging
+		dataType: int64
+		formatString: 0
+		lineageTag: 636d7ef0-ca72-4ad1-a3c2-3cc6675d8b67
+		summarizeBy: sum
+		sourceColumn: packaging
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'finished goods'
+		dataType: int64
+		formatString: 0
+		lineageTag: ef97b1cf-af49-46ef-b557-21f6aea774fd
+		summarizeBy: sum
+		sourceColumn: finished goods
+
+		annotation SummarizationSetBy = User
+
+	column 'raw materials '
+		dataType: int64
+		formatString: 0
+		lineageTag: 45274ab7-1c13-4c82-9240-3fb7a42bc2e6
+		summarizeBy: sum
+		sourceColumn: "raw materials "
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarantine
+		dataType: int64
+		formatString: 0
+		lineageTag: d7fc6441-0d90-4c7f-96c2-765d189de7f0
+		summarizeBy: sum
+		sourceColumn: quarantine
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Warehouse_Capacity = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_wh_capacity = deacom_replica{[Schema="dbo",Item="Warehouse_Capacity"]}[Data]
+				in
+				    dbo_wh_capacity
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

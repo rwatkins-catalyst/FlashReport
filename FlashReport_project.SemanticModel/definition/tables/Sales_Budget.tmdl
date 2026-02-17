@@ -1,0 +1,325 @@
+table Sales_Budget
+	lineageTag: 76e01a20-974d-40b6-9524-491bb09abeb4
+
+	measure 'Sales F (U) $' = [so Actual] -  [Sales Budget $]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 6cc56030-87c1-437b-a3d4-291b9c7c03f9
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales F (U) KG' = ```
+			
+			var result = [so KG] - [Sales Budget KG] 
+			
+			return 
+			if(not ISBLANK(result),
+			if(result < 0,format(abs(result), "(#,##0)") ,  format(result, "#,##0")))
+			```
+		lineageTag: dda77609-3123-4ef4-96f6-0a7448957e3f
+
+	measure 'Sales F (U) VCM' = ```
+			[so VCM] - [Sales Budget VCM] 
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 803baa6d-2c18-4a76-a5b1-41f3b1243c88
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'SR Orders ($)' = DIVIDE(ABS(Sales_Budget[Sales F (U) $]),[Sales Budget $],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0b77916c-7e9e-466e-85d0-cd882461a593
+
+	measure 'SR Vol(KGs)' = divide(Sales_Budget[Sales F (U) KG],[Sales Budget KG],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 87ed2ceb-e5c9-4920-80a3-590d763b3bfa
+
+	measure 'SR CM ($)' = ```
+			divide(Sales_Budget[Sales F (U) VCM],[Sales Budget $],0) 
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 6a4cccb4-2ce2-4b38-b26b-ba29a78a4d63
+
+	measure 'SR CM (%) Budget' = divide([Sales Budget VCM],[Sales Budget $],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 22f7aaac-f65e-44ca-8673-9f0d13d29270
+
+	measure 'SR CM (%) Actuals' = divide(sum(Sales_Budget[variable_cost]),[so Actual],0)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8c0500ea-88e3-474b-a8c6-8abf1673c28d
+
+	measure 'SR CM (%) Variance' = [SR CM (%) Actuals] - [SR CM (%) Budget]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4762ea0d-e9e6-4114-a0ab-4e025bedb1e4
+
+	measure 'Sales $ Achievement %' = if([so Actual] >= 0 && [Sales Budget $] = 0,1, divide([so Actual],[Sales Budget $],0) )
+		formatString: 0.000%;-0.000%;0.000%
+		lineageTag: 37dc0d12-bf08-46e0-a9c1-e0105be1ab0c
+
+	measure 'Sale KG Achievement %' = if([so KG] >= 0 && [Sales Budget KG] = 0,1,DIVIDE([so KG],[Sales Budget KG],0))
+		lineageTag: b3f40fef-df54-450f-be2c-08d1e876c102
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales VCM Achievement %' = if([so VCM] >= 0 && [Sales Budget VCM] = 0,1, DIVIDE(Sales_Budget[so VCM] ,[Sales Budget VCM] ,0))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6b7a41d7-0ef4-474a-b5d9-5a2d25228e95
+
+	measure 'Actual VCM %' = ```
+			DIVIDE([so VCM],[so Actual],0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d368711a-cd57-486b-86d6-4c6149cf30f5
+
+	measure 'kg sum 2' = if(sum(Sales_Budget[KG]) = 0,0,sum(Sales_Budget[kg]))
+		lineageTag: d271a2b9-9801-459c-b9b6-9360ed4f53a8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'so Actual' = if(ISBLANK([act sum 2]),0,[act sum 2])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 2565540a-0bae-4013-8577-47df8fe0f29b
+
+	measure 'so KG' = if(ISBLANK([kg sum 2]),0,[kg sum 2])
+		lineageTag: e49b52b6-85b6-4240-bd19-cb2740bfae7e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'so VCM' = if(ISBLANK([vcm sum 2]),0,[vcm sum 2])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f477db20-1c1c-4a17-abaa-c35a1a3d3fe3
+
+	measure 'final flag 2' = if(or(sum(Sales_Budget[flag]) > 0,Sales_Budget[Sales Budget $] > 0),1,BLANK())
+		formatString: 0
+		lineageTag: 68be50d6-7f24-48b3-a5de-feb56d82dd06
+
+	measure 'Sales Budget $' = if(sum(Budget[Sales_Revenue])  = 0, 0, sum(Budget[Sales_Revenue]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 1b30f165-319b-43b3-967e-ef24eec98787
+
+	measure 'Sales Budget KG' = if(sum(Budget[KG_Shipped]) = 0,0, sum(Budget[KG_Shipped]) )
+		formatString: #,0.00
+		lineageTag: 4e0b7fc5-414e-4e42-8477-3de6669f26f0
+
+	measure 'Sales Budget VCM' = if(sum(Budget[VC_Margin]) = 0,0, sum(Budget[VC_Margin]) )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 8855db41-cb55-46ff-bdac-6de0cff83852
+
+	measure 'act sum 2' = sum(Sales_Budget[actual])
+		lineageTag: 756c6b1f-1e73-45a1-a74b-c2e4eb9e1dac
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'F (U) KG 2' = ```
+			[so KG] - [Sales Budget KG] 
+			 
+			```
+		formatString: 0.00
+		lineageTag: 147bed62-96ac-46d2-8b84-d10a465003ab
+
+	measure 'vcm sum 2' = IF(sum(Sales_Budget[variable_cost]) = 0,0,sum(Sales_Budget[variable_cost]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b27dd856-43d8-4fae-a9a7-3f58e7b586e3
+
+	measure 'Sales Budget VC%' = if(AVERAGE(Budget[VC_Margin1]) = 0,0,AVERAGE(Budget[VC_Margin1]) )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 51d3b55a-ac50-4ab8-9603-f3585236a12d
+
+	measure 'Sales F (U) VCM%' = ```
+			[Actual VCM %] - [Sales Budget VC%] 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 598e0548-3ff9-4f53-8932-b680131b535c
+
+	column bi_name_adj
+		dataType: string
+		lineageTag: d8c2c4a3-fec6-4590-a35a-1fb23ca1216b
+		summarizeBy: none
+		sourceColumn: bi_name_adj
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: 8ee4e393-8680-4c9d-ac3d-08aab9dbe2c6
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column sale_rep
+		dataType: string
+		lineageTag: d3ec4ea0-788c-4571-9fe6-d61a80943e2f
+		summarizeBy: none
+		sourceColumn: sale_rep
+
+		annotation SummarizationSetBy = Automatic
+
+	column extension_2023
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f1756412-e2c9-47a4-b90b-4216426b52d7
+		summarizeBy: sum
+		sourceColumn: extension_2023
+
+		annotation SummarizationSetBy = Automatic
+
+	column extension_2024
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: be9f051e-94c7-418f-a2bd-40e4510c96b4
+		summarizeBy: sum
+		sourceColumn: extension_2024
+
+		annotation SummarizationSetBy = Automatic
+
+	column extension_2025
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0a2eeac6-3d04-4a62-a58b-f58161ff9338
+		summarizeBy: sum
+		sourceColumn: extension_2025
+
+		annotation SummarizationSetBy = Automatic
+
+	column variable_cost
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 656c91e9-c28f-4997-afbf-f5977a46f7a3
+		summarizeBy: sum
+		sourceColumn: variable_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget_sales
+		dataType: double
+		lineageTag: bb204fa2-4971-4be7-b3dc-157dd31507a9
+		summarizeBy: sum
+		sourceColumn: budget_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column budget_vc_margin
+		dataType: double
+		lineageTag: adba770d-9c33-40b1-9e18-b47893dc1d37
+		summarizeBy: sum
+		sourceColumn: budget_vc_margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column budget_kg_shipped
+		dataType: double
+		lineageTag: 6cb28b94-323c-4949-8b37-28d62e751552
+		summarizeBy: sum
+		sourceColumn: budget_kg_shipped
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column month_num
+		dataType: int64
+		formatString: 0
+		lineageTag: 79e8f35d-72fc-44bb-bf9e-a0e3e1cc5e96
+		summarizeBy: sum
+		sourceColumn: month_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag
+		dataType: int64
+		formatString: 0
+		lineageTag: c8b52d1c-0b5c-4173-a2b1-5590962c6d78
+		summarizeBy: sum
+		sourceColumn: flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_Margin
+		dataType: double
+		lineageTag: af715c98-6d96-4ac9-ba71-03e01d112c03
+		summarizeBy: sum
+		sourceColumn: Material_Margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column brand_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2297a6e3-07c5-4a37-93ac-04b697350583
+		summarizeBy: none
+		sourceColumn: brand_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column extension_2026
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 07937b73-1f30-40e1-a13d-09fc1e8cef6f
+		summarizeBy: sum
+		sourceColumn: extension_2026
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual
+		dataType: double
+		lineageTag: b5d0d4a0-e239-4454-b87e-e74ae6d80f75
+		summarizeBy: sum
+		sourceColumn: actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column kg
+		dataType: double
+		lineageTag: 72a6eea0-0936-4b39-b488-40bc0375e6d1
+		summarizeBy: sum
+		sourceColumn: kg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ship_date
+		dataType: dateTime
+		formatString: mmmm yyyy
+		lineageTag: bc548656-3541-460a-ba45-f9d421b89aeb
+		summarizeBy: none
+		sourceColumn: ship_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ship_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 54747d36-f54f-4380-8fe2-04387ea4be51
+		summarizeBy: sum
+		sourceColumn: ship_year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales_Budget = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_Sales_Budget = deacom_replica{[Schema="dbo",Item="Sales_Budget"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_Sales_Budget,{{"ship_date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,74 @@
+table CRM_Stages
+	lineageTag: 1d9261c6-a248-414c-8563-020868d5bee9
+
+	column success
+		dataType: string
+		lineageTag: a7780c5c-80a1-4568-815f-a7e59ebc6e0b
+		summarizeBy: none
+		sourceColumn: success
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: string
+		lineageTag: 96f1442e-9d0f-429c-af91-c37b17054795
+		summarizeBy: none
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.id'
+		dataType: string
+		lineageTag: ce4975a9-1e54-4da4-ac7a-dae8d202df5f
+		summarizeBy: none
+		sourceColumn: data.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.name'
+		dataType: string
+		lineageTag: 9a447709-6cf7-4de2-97bc-209906e89eaa
+		summarizeBy: none
+		sourceColumn: data.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.sequence'
+		dataType: string
+		lineageTag: 722a7064-b8e1-4c7e-a33e-b918073402e7
+		summarizeBy: none
+		sourceColumn: data.sequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.fold'
+		dataType: string
+		lineageTag: 6605fef9-0be8-4d76-b245-e74bdbbf1509
+		summarizeBy: none
+		sourceColumn: data.fold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.is_won'
+		dataType: string
+		lineageTag: bbb8b69a-a76a-4ee1-8fb3-dd190f31e563
+		summarizeBy: none
+		sourceColumn: data.is_won
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CRM_Stages = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://catalystnutra.odoo.com/api/crm/stages", [Headers=[Authorization="Bearer f4c6df66a094e698a3ab302c2500004e9f8d7bff"]])),
+				    #"Converted to Table" = Table.FromRecords({Source}),
+				    #"Expanded data" = Table.ExpandListColumn(#"Converted to Table", "data"),
+				    #"Expanded data1" = Table.ExpandRecordColumn(#"Expanded data", "data", {"id", "name", "sequence", "fold", "is_won"}, {"data.id", "data.name", "data.sequence", "data.fold", "data.is_won"})
+				in
+				    #"Expanded data1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

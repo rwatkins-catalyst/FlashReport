@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "FlashReport_project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6f7f5ad9-7fc1-4680-9fd4-a2ab7985223c"
+  }
+}

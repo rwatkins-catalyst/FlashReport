@@ -1,0 +1,242 @@
+table FGbyCustv3
+	lineageTag: 24092cad-ea45-46fc-b8f0-ec8408759fd1
+
+	column customer
+		dataType: string
+		lineageTag: 56354928-9d87-4294-89ad-3432e1cab89f
+		summarizeBy: none
+		sourceColumn: customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'customer po'
+		dataType: string
+		lineageTag: dc40d587-2243-4327-adbe-a3f382739ce5
+		summarizeBy: none
+		sourceColumn: customer po
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'so num'
+		dataType: string
+		lineageTag: a235cf63-3fe0-4ca9-b6db-3097709fcbf8
+		summarizeBy: none
+		sourceColumn: so num
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'due to ship'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 248552ea-56be-4595-afdd-eebfed577d34
+		summarizeBy: none
+		sourceColumn: due to ship
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'orig promised'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f8416733-7e4b-4f40-9311-d9394c7f395d
+		summarizeBy: none
+		sourceColumn: orig promised
+
+		variation Variation
+			isDefault
+			relationship: 56201305-a4c0-4756-b6a3-75224c78ef26
+			defaultHierarchy: LocalDateTable_ef95c061-abed-401c-88a5-450b225a47a2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'job num'
+		dataType: double
+		lineageTag: 392ac793-1aee-4a58-a9bf-049d2fc7e4fe
+		summarizeBy: sum
+		sourceColumn: job num
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'part number'
+		dataType: string
+		lineageTag: fd11ee12-f8ec-42f7-8038-14b409dc5393
+		summarizeBy: none
+		sourceColumn: part number
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 8353cfce-27bd-4f1f-af31-12cde0f2c7ca
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'user lot'
+		dataType: string
+		lineageTag: a42496b3-c183-4125-89e9-979e20d1d1c4
+		summarizeBy: none
+		sourceColumn: user lot
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'expiration date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d942e29d-c6b0-4d7f-855d-c8dc599e1cef
+		summarizeBy: none
+		sourceColumn: expiration date
+
+		variation Variation
+			isDefault
+			relationship: 28f1c436-5c2e-4c6e-9057-570768f74bd9
+			defaultHierarchy: LocalDateTable_f516fe7a-2989-4db4-abda-57e10d2d2f52.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'qc clear date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 374863f9-029e-4f44-a1d2-46a2e65cde18
+		summarizeBy: none
+		sourceColumn: qc clear date
+
+		variation Variation
+			isDefault
+			relationship: 1264fd2b-5c01-41b7-b448-1f32d768300b
+			defaultHierarchy: LocalDateTable_441f59ca-76ed-4aca-a00a-efd7e9170244.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total cogs'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 4476bbf3-92be-4281-9190-f19fcfbb34f5
+		summarizeBy: sum
+		sourceColumn: total cogs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'unit price'
+		dataType: double
+		lineageTag: 756208b4-5786-439b-a6a5-4b0dc4d67696
+		summarizeBy: sum
+		sourceColumn: unit price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'total revenue'
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 6af294c4-5fab-4e0a-9674-915c1cf5987c
+		summarizeBy: sum
+		sourceColumn: total revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Days_Ready
+		dataType: int64
+		formatString: 0
+		lineageTag: ee53932a-ffbc-4b5c-b5b5-0cf30fa8471a
+		summarizeBy: sum
+		sourceColumn: Days_Ready
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day_Group
+		dataType: string
+		lineageTag: fe361846-87d7-4b59-be67-aff44bff41ca
+		summarizeBy: none
+		sourceColumn: Day_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total onhand - cases'
+		dataType: double
+		lineageTag: c9640d81-eb76-4c57-a204-64a31d6b42b2
+		summarizeBy: sum
+		sourceColumn: total onhand - cases
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'units per case'
+		dataType: string
+		lineageTag: 6c1e3625-441a-4f95-9897-7cfe0f80a97d
+		summarizeBy: none
+		sourceColumn: units per case
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'total onhand - units'
+		dataType: double
+		lineageTag: 96c5764f-f8c6-404f-a10c-1599d2857e17
+		summarizeBy: sum
+		sourceColumn: total onhand - units
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'total revenue - cogs'
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3060b7c4-441f-4d11-b885-bc1375f9495a
+		summarizeBy: sum
+		sourceColumn: total revenue - cogs
+
+		annotation SummarizationSetBy = Automatic
+
+	column exclude_from_backlog
+		dataType: int64
+		formatString: 0
+		lineageTag: c82d263a-2f0a-49f0-927e-3b280e1997ca
+		summarizeBy: sum
+		sourceColumn: exclude_from_backlog
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_biid
+		dataType: int64
+		formatString: 0
+		lineageTag: 379ff060-c03a-4388-b0d5-6897db907bf7
+		summarizeBy: none
+		sourceColumn: to_biid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'margin %'
+		dataType: double
+		lineageTag: 510f06ca-e139-4e2c-9a05-424155611e94
+		summarizeBy: sum
+		sourceColumn: margin %
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FGbyCustv3 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_FGbyCustv3 = deacom_replica{[Schema="dbo",Item="FGbyCustv3"]}[Data]
+				in
+				    dbo_FGbyCustv3
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,199 @@
+table Vendor_Lots
+	lineageTag: ba88ed77-6bf7-49c1-8d37-f916a9b02795
+
+	measure Count_LtName_By_VeName = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Vendor_Lots'[lt_name]),
+			    ALLEXCEPT('Vendor_Lots', 'Vendor_Lots'[ve_name])
+			)
+			
+			
+			```
+		formatString: 0
+		lineageTag: 52c612fa-5d42-4b9f-97fe-377ee8f5e946
+
+	measure LotCategoryCount =
+			
+			COUNTROWS(
+			    SUMMARIZE(
+			        Vendor_Lots,  // Your table name
+			        Vendor_Lots[ve_name],  // Vendor column
+			        Vendor_Lots[lt_name]   // Lot category column
+			    )
+			)
+		formatString: 0
+		lineageTag: 1bdfe73e-c4b8-4ca3-b382-177205846028
+
+	measure countlot = count(Vendor_Lots[lt_name])
+		formatString: 0
+		lineageTag: facf08db-f0aa-4eab-9004-927527c6b6f1
+
+	column lot
+		dataType: string
+		lineageTag: e2ba1569-d05d-4595-b19e-b0c959d53cb1
+		summarizeBy: none
+		sourceColumn: lot
+
+		annotation SummarizationSetBy = Automatic
+
+	column postref
+		dataType: string
+		lineageTag: 90f545a7-ab9a-4f4f-8ba8-6a304df355d0
+		summarizeBy: none
+		sourceColumn: postref
+
+		annotation SummarizationSetBy = Automatic
+
+	column system_lot
+		dataType: double
+		lineageTag: 98c6f794-7b2d-4894-aa7a-10a3be74273e
+		summarizeBy: sum
+		sourceColumn: system_lot
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quantity
+		dataType: double
+		lineageTag: 582c6b29-a79f-48e9-a627-f11d574aa19b
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_rec
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e39c1fb4-9cc0-4a13-9e14-6dffbb0a3642
+		summarizeBy: none
+		sourceColumn: date_rec
+
+		variation Variation
+			isDefault
+			relationship: 6456d6fb-4dab-49ea-b6ae-734a07defe88
+			defaultHierarchy: LocalDateTable_c56959ba-26f3-40f1-b836-779e5090c5eb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column action
+		dataType: string
+		lineageTag: e0e30eb3-5a73-4c48-b003-657e01d3e628
+		summarizeBy: none
+		sourceColumn: action
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 49c14687-10a3-4bbd-a89d-097415e38ddd
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column fi_prid
+		dataType: int64
+		formatString: 0
+		lineageTag: 93f4a31b-6c2e-4480-a3b4-4ee4e2ec4aa0
+		summarizeBy: sum
+		sourceColumn: fi_prid
+
+		annotation SummarizationSetBy = Automatic
+
+	column lo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ec22a19b-e077-45a4-8201-178a7175e2ed
+		summarizeBy: sum
+		sourceColumn: lo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column wa_name
+		dataType: string
+		lineageTag: 46a04f75-55c9-470d-84f6-4173d048af18
+		summarizeBy: none
+		sourceColumn: wa_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_num
+		dataType: string
+		lineageTag: 9c4f8e31-a6e5-4454-a0fa-b6841864c41c
+		summarizeBy: none
+		sourceColumn: part_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column pr_descrip
+		dataType: string
+		lineageTag: 51e21202-8a65-49e6-8a9e-1e5547723eac
+		summarizeBy: none
+		sourceColumn: pr_descrip
+
+		annotation SummarizationSetBy = Automatic
+
+	column lt_name
+		dataType: string
+		lineageTag: c7e67a8e-2700-40e8-9861-e0b03fd2bfaf
+		summarizeBy: none
+		sourceColumn: lt_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column lo_name
+		dataType: string
+		lineageTag: 5b4ba247-e6e9-43e4-9d04-87bb8d97e86b
+		summarizeBy: none
+		sourceColumn: lo_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ve_name
+		dataType: string
+		lineageTag: 6d5c7558-7c07-4680-bd58-a5e7e14c57ee
+		summarizeBy: none
+		sourceColumn: ve_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column d3_value
+		dataType: string
+		lineageTag: 46774b1e-3af5-4ead-a9a9-4e36d686f5f9
+		summarizeBy: none
+		sourceColumn: d3_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column fi_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 50482a33-3aae-4248-8854-bb25173e608c
+		summarizeBy: none
+		sourceColumn: fi_date
+
+		variation Variation
+			isDefault
+			relationship: 9080ce97-d73a-49ef-806b-374723aff0d3
+			defaultHierarchy: LocalDateTable_c958aec0-9b1f-4450-bcf1-89602b95bfd3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Vendor_Lots = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_vendorlots = deacom_replica{[Schema="dbo",Item="Vendor_Lots"]}[Data]
+				in
+				    dbo_vendorlots
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

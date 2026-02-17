@@ -1,0 +1,5223 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "Quoted/VC % Trend",
+  "name": "d5b13f67a609a5470b01",
+  "options": {
+    "targetVisualNames": [
+      "b87bd99f7028d471e3e1"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "75654e806022d786c136",
+    "sections": {
+      "75654e806022d786c136": {
+        "visualContainers": {
+          "2b2e6845a4714de4dd32": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fd595c0e7116235e22dc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Adj Brand"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "95640614dc5bd33ba1f6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "a1251ac40c150d8787a0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget $ YTD"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "bf525be644bd0efc0f7b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "072950d45a0c83d94066",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "5f3be53b72a92b77cec0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget KG YTD"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fa33093a98691d5d2a33",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget VCM YTD"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d6c8f467e8e552207c71",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4c0c029a63262e7d0251",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Orders F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67cdf0601a1ce86e9316",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e50315a1e06015d5620a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Quoted VCM %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "49fb1c3120e1b3ec5500",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Quoted VC % Budget"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "0e5a02634a7eb8562e55",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "IsCompletedMonth"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "23c054ca5c0956e3b140",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "qvc_25"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "2229079912bd5aa0864e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "actual_25"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "51a679ca8dc5ae84091e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "kg_25"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "566899a15f757b17275d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "brand"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "00b1df64ff0d370080aa",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "adj_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5856144833124921c83f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "o",
+                        "Entity": "Orders_Budget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "o"
+                                        }
+                                      },
+                                      "Property": "Brand"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Chase)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Haleigh)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Paul)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Frank)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Jimmy)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Greg)'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "howCreated": 4,
+                  "filterExpressionMetadata": {
+                    "expressions": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "Brand"
+                        }
+                      }
+                    ],
+                    "cachedValueItems": [
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Greg)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Greg)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Jimmy)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Jimmy)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Frank)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Frank)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Paul)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Paul)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Haleigh)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Haleigh)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Chase)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Chase)"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "Actual"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "adj_name"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "93c104ce4be77ec24a8f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "85c8c2dbd5a275bec9b2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sales_Budget"
+                            }
+                          },
+                          "Property": "extension_2025"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b2cfbc535e61bb59029b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sales_Budget"
+                            }
+                          },
+                          "Property": "variable_cost"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "731f21ba6f4c8dc991ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d85fed66fec2a6322f80",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d0005b208f3288a15126",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7cae71c36222e83ee15b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "o",
+                        "Entity": "Orders_Budget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "o"
+                                        }
+                                      },
+                                      "Property": "Brand"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Chase)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Haleigh)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Paul)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Frank)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Jimmy)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Greg)'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "howCreated": 4,
+                  "filterExpressionMetadata": {
+                    "expressions": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "Brand"
+                        }
+                      }
+                    ],
+                    "cachedValueItems": [
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Greg)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Greg)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Jimmy)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Jimmy)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Frank)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Frank)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Paul)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Paul)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Haleigh)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Haleigh)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Chase)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Chase)"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Brand"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "2987a0050f1da55f178c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "02809b74acec615a54d9",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d233d5ba78435e1947cb",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d78bd2deb7d2f454e0e6",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimDates"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c462c506456ad1dedd00",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimDates"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimDates"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "68ad303b76d214a3f401": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e4d380c321ccc9174a8c",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "l"
+                                        }
+                                      },
+                                      "Property": "Quarter"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Quarter"
+                    }
+                  },
+                  "howCreated": 0,
+                  "cachedDisplayNames": [
+                    {
+                      "id": {
+                        "scopeId": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d"
+                                  }
+                                },
+                                "Property": "Quarter"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "displayName": "(Blank)"
+                    }
+                  ]
+                },
+                {
+                  "name": "5df9a1b779a8e6a20345",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "91f42ee9c633b0ecf918": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "af392fe390c1eb1d4455": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "847c391fd5eb667dbfff": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
+            }
+          },
+          "b08502656b94c258f590": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "390e2e90f5ffae04bf73",
+                  "type": "RelativeDate",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "b2b4837f5ea56015d97c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fadc145ecad469cbfda6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "IsCompletedMonth"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "82469392ce23e0dc5200",
+                  "type": "RelativeDate",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dimDates",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Date"
+                              }
+                            },
+                            "Right": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "Now": {}
+                                },
+                                "TimeUnit": 3
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d5716c0790c533665580",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dimDates",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "current_date_26"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "1L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_26"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "61fc62a29935038fd068",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_25_26"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "586f5e63e66d041b8301",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Orders($)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f43e3067a7aa6429f42f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "VOL(KGs)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "00a08e01c733849ea2dd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "CM($)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "56fd38703f351cf48069",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "CM (%) Budget"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a3ca1c8782f5fcc4ab28",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "CM (%) Actuals"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c081effc5bf1c5390f25",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "CM (%) Variance"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "ac3d055d88a92d190b06": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "472fa931044a824bb640",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "SR Orders ($)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6e0390c8452978a9b111",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "SR Vol(KGs)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1e581a9c45e49dfa4b27",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "SR CM ($)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "30a9150e40a4540ff935",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "SR CM (%) Budget"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b6fe3d0eb97156f2bd2e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "SR CM (%) Actuals"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0fd2ad989698707a0a65",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "SR CM (%) Variance"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "561c121d09a600269d54": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c95d5784ce8eafad8eff",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "91c3d68cf08c3ce2579c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sales_Budget"
+                            }
+                          },
+                          "Property": "extension_2025"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c6aa696c1eb5f9052e90",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "howCreated": 4
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "62219529337d0653bbb6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "dc2883e50b70504a533e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f32e6b7ac1860b35cf02",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sales_Budget"
+                            }
+                          },
+                          "Property": "extension_2025"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c8ab41ccd7e336e66994",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sales_Budget"
+                            }
+                          },
+                          "Property": "variable_cost"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a4b183457dc68ea29073",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f7727d075afc3764a70e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "97c74e9829ea2fb5a595",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "howCreated": 4
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "b87bd99f7028d471e3e1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d8c2bda931c63dc2d6f4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f3688fb648a43a737d91",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67979a8bd49d7e13bbe0",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "l"
+                                        }
+                                      },
+                                      "Property": "Month"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0,
+                  "cachedDisplayNames": [
+                    {
+                      "id": {
+                        "scopeId": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d"
+                                  }
+                                },
+                                "Property": "Month"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "displayName": "(Blank)"
+                    }
+                  ]
+                },
+                {
+                  "name": "ce72e22042d803207c0b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sales_Budget"
+                            }
+                          },
+                          "Property": "variable_cost"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b3f87ccfce0ae5a59c4d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "6eed0835004cef1c9564",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dimDates",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "current_date_25_26"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "1L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_25_26"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "1234037004a1b00093a1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "cfa270c81c2563365d54",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "kg sum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "39f7df316c09059500c9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "quotedvc"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "727972f0409956632318",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c31d1696c3ea0a0c4a0b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0c65812e3c3721eb0308",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "83fe66908600e1c2cea2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a1c8e60e5d31e714ee45",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "l"
+                                    }
+                                  },
+                                  "Property": "Year"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2025L"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2026L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0,
+                  "cachedDisplayNames": [
+                    {
+                      "id": {
+                        "scopeId": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d"
+                                  }
+                                },
+                                "Property": "Year"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "2025L"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "displayName": "2025"
+                    },
+                    {
+                      "id": {
+                        "scopeId": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d"
+                                  }
+                                },
+                                "Property": "Year"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "2026L"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "displayName": "2026"
+                    }
+                  ]
+                },
+                {
+                  "name": "5617339dc96b3d2ca04c",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "o",
+                        "Entity": "Orders_Budget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "o"
+                                      }
+                                    },
+                                    "Property": "final_flag"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final_flag"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "howCreated": 4
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "dimMonth.Month.Variation.Date Hierarchy.Year"
+                      ],
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d"
+                              }
+                            },
+                            "Property": "Year"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "dimMonth.Month.Variation.Date Hierarchy.Month"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "db45f2b68a39d46cae41": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b3d9989100e1500dbee0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "8a4e7931bed9dca35be2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "actual_24"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a0e8aeb91380840bec9c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "actual_23"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2091505dae128c648de4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "brand"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e7fc46aaa06e3bf4d20c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "actual_25"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e92e319c5e094eb237b7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "actual_26"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8dcd8575d5da6d509ff1",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "o",
+                        "Entity": "Orders_Budget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "o"
+                                        }
+                                      },
+                                      "Property": "Brand"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Chase)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Haleigh)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Paul)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Frank)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Jimmy)'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'(New-Greg)'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "howCreated": 4,
+                  "filterExpressionMetadata": {
+                    "expressions": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "Brand"
+                        }
+                      }
+                    ],
+                    "cachedValueItems": [
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Greg)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Greg)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Jimmy)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Jimmy)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Frank)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Frank)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Paul)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Paul)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Haleigh)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Haleigh)"
+                        }
+                      },
+                      {
+                        "identities": [
+                          {
+                            "scopeId": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Orders_Budget"
+                                      }
+                                    },
+                                    "Property": "Brand"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'(New-Chase)'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "valueMap": {
+                          "0": "(New-Chase)"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Month"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "8e65b8a1879d63c67b13": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ffe29538a67a651c82d6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "25c228decb6e5ecba525",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Sales_Budget"
+                            }
+                          },
+                          "Property": "extension_2025"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "54dddf18e4d0bd86cfa8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Sales F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "howCreated": 4
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "0189c8fdc28ac32437b7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f40e50ae14e1163e52b5",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "o",
+                        "Entity": "Orders_Budget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "o"
+                                    }
+                                  },
+                                  "Property": "flag"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "1L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "953d47917b000d492578",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "sales_rep"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "347fb2b3c442a2d7ab3e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final_flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "b2c49b5a46778e52a3d6",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "b",
+                        "Entity": "Brands",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "b"
+                                        }
+                                      },
+                                      "Property": "Sales Rep"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "' Inactive'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Anthony DeNuzzia'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Corbyn Greico'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Janie Johnson'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Karla Jones'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "Sales Rep"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "Sales Rep"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "dfd750f889f9c41ecb3b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "592e7c00e7ed1d1eb9d1",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dimDates",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "Year"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2025L"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2026L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Year"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "48f36900413b13bc44da",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "o",
+                        "Entity": "Orders_Budget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "o"
+                                      }
+                                    },
+                                    "Property": "flag"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "1fe132c2899ef8c29d28",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "Sales_Budget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "s"
+                                  }
+                                },
+                                "Property": "Actual VCM %"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "Actual VCM %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "70bad60065186783ff16",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "534344d6df8e81996f65",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Quoted VCM %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "howCreated": 4
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "Month"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "52aeadae57170dfaadeb": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "104b57cd9433320c7be4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d6c8f467e8e552207c71",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67cdf0601a1ce86e9316",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0e5a02634a7eb8562e55",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "IsCompletedMonth"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "cc125a6502d09697e16c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Remaining_Needed"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "3307108c7e031491ba96",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "brand"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f2d0281e92773018964c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "forecast"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "a31d861607eecd935002",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "monthly_forecast"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a7480537151e9afb73d0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "adj_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a2fc01ee2b594bb1b74e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8eeabcbb34b89fd7537d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "kg"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b53a150277c7127f339a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "flag"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "76af785dc215d10fb541",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "0df627c730588007c9a0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Remaining"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "40d5426d5dd237b283ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Quoted VCM %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ],
+              "byType": [
+                {
+                  "name": "47f6938fd04be876c1af",
+                  "type": "Exclude",
+                  "howCreated": 4
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "adj_name"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "158057a99eed6d50d612": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d6c8f467e8e552207c71",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67cdf0601a1ce86e9316",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a31d861607eecd935002",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "monthly_forecast"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a2fc01ee2b594bb1b74e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "041902873b51112c30e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5731f579d126e5400a40",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7041f308004d6518a160",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "kg sum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "cbf459c83bda066a0b60",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final_flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "93f1f1715c58953e7a98",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "QVC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b1801a70675eb04543e8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9191e11a8025e0855d97",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4d63d3495ca5617103ac",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6fb8220c1b5a67965b7d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Remaining"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db24fd948750c00a95a5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "36b1b0b9c346ae8069da": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "07d35f3356222379013a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1708a7c6299bddde9a5b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1060ee9083740a177530",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "268837c28899f613437a",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dimDates",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Property": "current_date_26"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "1L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_26"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "9df890934e0554266be3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_25_26"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "62a57b87bcbc9073682b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0ea5210166d5871e9a3d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4a5d21b6608bd79825eb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "907e55fc20c3a6208802",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1560cc97afccb1479d56",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "IsCompletedMonth"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "2579550f3dede529d6e1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "kg sum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bbf98176de107c16da3d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "QVC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "eb52d77d1241a59304de",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_25_26"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d4f7f306123444f7c9cb",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_26"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {}
+            }
+          },
+          "3f1486e81c50ca489931": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d6c8f467e8e552207c71",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67cdf0601a1ce86e9316",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a31d861607eecd935002",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Orders_Budget"
+                            }
+                          },
+                          "Property": "monthly_forecast"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a2fc01ee2b594bb1b74e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "041902873b51112c30e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5731f579d126e5400a40",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7041f308004d6518a160",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "kg sum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "93f1f1715c58953e7a98",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "QVC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b1801a70675eb04543e8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9191e11a8025e0855d97",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4d63d3495ca5617103ac",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6fb8220c1b5a67965b7d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Remaining"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db24fd948750c00a95a5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "65cc7a5fe090a2f77f25",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final_flag"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "b24be1ee49604b0a9a5a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f40e50ae14e1163e52b5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "a2267e198141775e6127",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dimMonth"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Month"
+                            }
+                          },
+                          "Hierarchy": "Date Hierarchy"
+                        }
+                      },
+                      "Level": "Year"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "470634a70b20b3030850": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d6c8f467e8e552207c71",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67cdf0601a1ce86e9316",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a2fc01ee2b594bb1b74e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "041902873b51112c30e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "5731f579d126e5400a40",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7041f308004d6518a160",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "kg sum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "93f1f1715c58953e7a98",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "QVC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b1801a70675eb04543e8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9191e11a8025e0855d97",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4d63d3495ca5617103ac",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db24fd948750c00a95a5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "25c466b1749c0077cd3c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dimDates"
+                        }
+                      },
+                      "Property": "current_date_25_26"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "1d5fc8105235a7da6f4d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "ytd_final_flag"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "4a2890b6f5f6f312f803": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d6c8f467e8e552207c71",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "67cdf0601a1ce86e9316",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a2fc01ee2b594bb1b74e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Actual"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "041902873b51112c30e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name_adj"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "5731f579d126e5400a40",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7041f308004d6518a160",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "kg sum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "93f1f1715c58953e7a98",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "QVC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b1801a70675eb04543e8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders $"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9191e11a8025e0855d97",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4d63d3495ca5617103ac",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Budget Orders VCM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db24fd948750c00a95a5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "F (U) KG"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "948aa92250a397ec01d4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "final_flag"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "cb29cfaf0ce905363d92",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Sales_Budget"
+                        }
+                      },
+                      "Property": "final flag 2"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "ad73816b0a5c59cd514b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Remaining"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d0a0240b64b819744f24",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Orders_Budget"
+                        }
+                      },
+                      "Property": "Forecast_sum"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Brands"
+                        }
+                      },
+                      "Property": "bi_name"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

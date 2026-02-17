@@ -1,0 +1,302 @@
+table Orders_Budget
+	lineageTag: 5af015e9-9abb-4a5e-be19-74fd9d4b9f5c
+
+	measure 'F (U) KG' = [kg sum] - [Budget Orders KG]
+		formatString: #,0.00
+		lineageTag: 12fd80bb-eed2-4a3c-83cf-ef06974e9bfb
+
+	measure 'F (U) $' = ```
+			[Actual] - [Budget Orders $] 
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: b36ff413-de3d-4d1c-bbd1-1912f7dac789
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'F (U) VCM' = [QVC] - [Budget Orders VCM]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7a8974af-0d2c-432b-bb8e-424780e6208d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure Orders($) = divide([Actual],[Budget Orders $],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 298aceb8-f495-4ef1-b45d-eb6b5fcd0b77
+
+	measure VOL(KGs) = DIVIDE([kg sum],Orders_Budget[Budget Orders KG],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ae2c086c-97d5-4e9d-ab50-0c0a999b507b
+
+	measure CM($) = DIVIDE([F (U) VCM],[Budget Orders VCM],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 32675138-dab8-4900-91ff-8c8ece22995a
+
+	measure 'CM (%) Budget' = divide([Budget Orders VCM],[Budget Orders $],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 739f7593-df1c-44f0-95a5-5258a022e322
+
+	measure 'CM (%) Actuals' = ```
+			divide([QVC],[Actual],0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5f99b18d-fafa-43b6-8468-4ab73297ec48
+
+	measure 'CM (%) Variance' = ```
+			[CM (%) Actuals] - [CM (%) Budget] 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3970bf93-7047-463f-b012-cdd4727db13a
+
+	measure 'Orders $ Achievement %' = if([Actual] >= 0 && [Budget Orders $] = 0,1,if(([Actual] = 0 && [Budget Orders $] = 0), blank(), DIVIDE([Actual],[Budget Orders $],0)))
+		lineageTag: 42f9eb09-fb0e-44c0-aec5-a6cf79e186f0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Orders KG Achievement %' = if([kg sum] >= 0 && [Budget Orders KG] = 0,1, if(([kg sum] = 0 && [Budget Orders KG] = 0), blank(), DIVIDE([kg sum],[Budget Orders KG],0)))
+		lineageTag: 1bd829d4-f61b-433a-bf0e-7a88f20d5dba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Orders VCM Achievement %' = if([QVC] >= 0 && [Budget Orders VCM] = 0 && [Actual] >= 0,1,if(([QVC] = 0 && [Budget Orders VCM] = 0), blank(), DIVIDE([QVC],[Budget Orders VCM],0)))
+		lineageTag: 0500f487-9763-4ae3-b817-46776b730e7b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Quoted VCM %' = divide([QVC],[actual],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c4f1c15f-39bc-4ef6-95f2-bb1cb70667d7
+
+	measure 'act sum' = sum(Orders_Budget[act])
+		lineageTag: 3022393e-0f7f-47e5-94f5-61673335df59
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Actual = if(ISBLANK([act sum]),0,[act sum])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: e7b0e0c3-aa97-4aaa-af1e-96fe9df1ee84
+
+	measure 'kg sum' = if(isblank(sum(Orders_Budget[kgs])),0,sum(Orders_Budget[kgs]))
+		lineageTag: 33ae9071-1931-411f-8203-7e080c01754b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QVC = if(ISBLANK(sum(Orders_Budget[quotedvc])),0,sum(Orders_Budget[quotedvc]))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 34ae5150-862b-40ef-985f-4dbb0dce498e
+
+	measure Remaining = if(or(sum(Orders_Budget[monthly_forecast]) = 0 ,[Actual] >sum(Orders_Budget[monthly_forecast])) , 0,sum(Orders_Budget[monthly_forecast]) - [Actual])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b5d6d21d-2f75-417f-86ea-6a73ab1978f8
+
+	measure 'Budget Orders $' = ```
+			if(isblank(sum(Budget[Orders_Sales])),0,sum(Budget[Orders_Sales]) ) 
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ff01c1dd-b172-4cec-b59f-9f7e0712d05a
+
+	measure 'Budget Orders KG' = ```
+			if(isblank(sum(Budget[Orders_KG])),0,sum(Budget[Orders_KG]) ) 
+			```
+		formatString: #,0.00
+		lineageTag: 6759ef6f-4110-49d1-bbda-a4cfd624b3ab
+
+	measure 'Budget Orders VCM' = ```
+			if(isblank(sum(Budget[Orders_VC_Margin])),0,sum(Budget[Orders_VC_Margin]) ) 
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 89bfcb72-8bfe-4b17-afdd-5b1d2bd01647
+
+	measure final_flag = if(or(or(sum(Orders_Budget[flag]) > 0,sum(Orders_Budget[monthly_forecast]) > 0),[Budget Orders $] > 0),1,BLANK())
+		formatString: 0
+		lineageTag: 1a12d941-0471-4d09-a990-fbcfacb8b2ad
+
+	measure mtd_final_flag = if(or(or(sum(Orders_Budget[flag]) > 0,SUM(Orders_Budget[forecast])),[Budget Orders $] > 0),1,BLANK())
+		formatString: 0
+		lineageTag: 5c5e758d-41bf-4292-9dce-bcfa399c34bd
+
+	measure Forecast_sum = if(sum(Orders_Budget[monthly_forecast]) = 0,0,sum(Orders_Budget[monthly_forecast]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d71020b1-3cfc-4c67-9e79-73adfebb8a5d
+
+	measure ytd_final_flag = if(or(sum(Orders_Budget[flag]) > 0,[Budget Orders $] > 0),1,BLANK())
+		formatString: 0
+		lineageTag: 291a688b-3416-4fce-a366-90108bdb4c40
+
+	column flag
+		dataType: int64
+		formatString: 0
+		lineageTag: b353f034-477e-4d5c-8042-cf27087ace3e
+		summarizeBy: sum
+		sourceColumn: flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column domain
+		dataType: string
+		lineageTag: 48b9d71e-6fef-4e83-9a13-55ccd422a25b
+		summarizeBy: none
+		sourceColumn: domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a534be2-b923-455a-a85c-f3df432b2296
+		summarizeBy: none
+		sourceColumn: brand_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: a9d29440-06fa-4950-af1f-b94f6e3baea2
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column adj_name
+		dataType: string
+		lineageTag: 8062d797-e04a-4bce-9e82-35740f6bad6c
+		summarizeBy: none
+		sourceColumn: adj_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_rep
+		dataType: string
+		lineageTag: 76e1885f-de2f-42c5-9862-0fd05de5491a
+		summarizeBy: none
+		sourceColumn: sales_rep
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier
+		dataType: string
+		lineageTag: 67e0e766-8a40-48d5-b985-b6551191c1ad
+		summarizeBy: none
+		sourceColumn: tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 4bd02058-a1a7-498c-82a6-c0d8912ab8f2
+		summarizeBy: sum
+		sourceColumn: forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_forecast
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e30011eb-df90-4157-9556-0033afd15f2d
+		summarizeBy: sum
+		sourceColumn: monthly_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column act
+		dataType: double
+		lineageTag: b0baebf7-e4e4-4b4c-b4b1-8be7a6b3c587
+		summarizeBy: sum
+		sourceColumn: act
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qty
+		dataType: double
+		lineageTag: 8415b424-a595-402a-8fd2-f7f0b1631da9
+		summarizeBy: sum
+		sourceColumn: qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column kgs
+		dataType: double
+		lineageTag: 8e0b3a6c-ffee-450a-8ea7-e8f8ce3961e8
+		summarizeBy: sum
+		sourceColumn: kgs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column month_year_field
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dff53e8e-6c8d-405c-bfbe-2dc26c1d6178
+		summarizeBy: none
+		sourceColumn: month_year_field
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column quotedvc
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7054d21c-1326-4bea-8e4a-70777b72c42b
+		summarizeBy: sum
+		sourceColumn: quotedvc
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_23
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0ff51966-474c-4c7d-94a4-e3c6c484d28d
+		summarizeBy: sum
+		sourceColumn: actual_23
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_24
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 1c4df1cf-02f3-482b-980e-f30f0d70d7e7
+		summarizeBy: sum
+		sourceColumn: actual_24
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_25
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3ad9c10e-add2-4e29-a7c3-7d4d5460ccec
+		summarizeBy: sum
+		sourceColumn: actual_25
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_26
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 476d098a-7ffb-4feb-b382-27ce5638f50b
+		summarizeBy: sum
+		sourceColumn: actual_26
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Orders_Budget = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_Orders_Budget = deacom_replica{[Schema="dbo",Item="Orders_Budget"]}[Data]
+				in
+				    dbo_Orders_Budget
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

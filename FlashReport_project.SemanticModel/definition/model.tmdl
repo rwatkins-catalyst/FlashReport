@@ -1,0 +1,100 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Prod_Hours","Open_Jobs","Replacement_Cost","OTTFP","Warehouse_Capacity","Warehouse_Capacity_2","Warehouse_Capacity_Transformed","Vendor_Lots","FGbyCustv3","Account_Receivable","FGbyCustQCPendingv4","Quotes","Production","Sales_Budget","Orders_Budget","Hours_Report","Open_Orders","Margin","Brands","Budget","order_detail_sr","Monthly_Forecasts","CRM_Leads","CRM_Stages","CRM_Teams","CRM_Projects","CRM_Tasks","hours_forecast"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["CalcGroup","DaxQueryView_Desktop","DevMode"]
+
+ref table Prod_Hours
+ref table dimDates
+ref table DateTableTemplate_37a0a0b7-42a6-4412-a510-8a2d1d37f8ea
+ref table Open_Jobs
+ref table LocalDateTable_67da95ff-3646-40cc-90b6-4f9baafdc1a1
+ref table LocalDateTable_b97f2453-9261-4470-ae2b-09b319cfbbe6
+ref table LocalDateTable_7b2f6148-c41e-4cf0-b2f1-b79f1d64dc0b
+ref table Replacement_Cost
+ref table OTTFP
+ref table LocalDateTable_574bf30a-d600-4096-8e3d-87803f9a7e0b
+ref table LocalDateTable_c0f05c87-84d2-41a6-a2e5-f0aee9b907e2
+ref table Warehouse_Capacity
+ref table Warehouse_Capacity_Transformed
+ref table OTTFP_PO
+ref table Vendor_Lots
+ref table LocalDateTable_c56959ba-26f3-40f1-b836-779e5090c5eb
+ref table LocalDateTable_c958aec0-9b1f-4450-bcf1-89602b95bfd3
+ref table FGbyCustv3
+ref table LocalDateTable_ef95c061-abed-401c-88a5-450b225a47a2
+ref table LocalDateTable_f516fe7a-2989-4db4-abda-57e10d2d2f52
+ref table LocalDateTable_441f59ca-76ed-4aca-a00a-efd7e9170244
+ref table Account_Receivable
+ref table LocalDateTable_3f65f4cb-6c50-4903-9373-a4bb362d8039
+ref table LocalDateTable_6e3329e1-b485-4894-b908-31335a1a3848
+ref table LocalDateTable_51b1af4d-a94c-4c2e-9a05-2a89ec968e54
+ref table LocalDateTable_58ea8280-7799-4a77-8194-63ea4cf6c0da
+ref table LocalDateTable_c2f6425c-8c4e-4756-a839-bf093f3a3c3d
+ref table LocalDateTable_3ec904db-0130-4aba-bb62-55f3aa7c6f1e
+ref table LocalDateTable_d3a67065-931f-4aad-96d5-3b2664e0dfb6
+ref table LocalDateTable_2baffa38-a84b-43b2-a911-c0ee2e242194
+ref table LocalDateTable_32c5b556-2bbd-4169-85cc-0e7002dda19a
+ref table LocalDateTable_210de68d-6446-4dca-950a-c857a56e74b2
+ref table LocalDateTable_a59a3e31-1535-4b5f-83bb-41115f841459
+ref table LocalDateTable_94c96bcb-819c-47e3-bcd0-7be2a9863b8a
+ref table LocalDateTable_5dbadad3-b684-4eda-9071-080a8da6d614
+ref table LocalDateTable_2779d56e-3ddd-4c24-aa26-7d8119cf412a
+ref table FGbyCustQCPendingv4
+ref table LocalDateTable_2bb93156-25ff-4565-ad2c-026327e5b72b
+ref table LocalDateTable_dfb71d2e-bb4d-4b1b-8a3a-84003dad6693
+ref table LocalDateTable_353b5ecc-9e35-4d34-93e3-623f1364054c
+ref table dimMonth
+ref table LocalDateTable_5fe8d586-225f-41a1-806d-a8ec90c2bb9d
+ref table Quotes
+ref table LocalDateTable_6af7d558-fc93-4904-94f2-2a6b61aed805
+ref table LocalDateTable_1fc6483e-9f1c-44d0-82e0-944bbc52d69e
+ref table Production
+ref table Sales_Budget
+ref table Orders_Budget
+ref table LocalDateTable_02c8aca8-3038-4d88-939e-584f9f5df444
+ref table LocalDateTable_fa699560-9035-4972-bec0-c6ef1dde83bd
+ref table LocalDateTable_4175fb99-8699-426d-907e-2642196fc87b
+ref table Hours_Report
+ref table LocalDateTable_7cdd5f02-04be-4c8f-83bd-78219dd0b6b8
+ref table LocalDateTable_220bf682-ed74-404f-ab4e-a4e9d0052d79
+ref table Open_Orders
+ref table LocalDateTable_962320ae-350a-4a60-b460-d0e6bbd15338
+ref table LocalDateTable_920b53bc-d35d-401a-a125-ad7d89fbf484
+ref table Margin
+ref table Brands
+ref table LocalDateTable_1cda4e0f-5676-4936-b0b1-fb47ba9104e2
+ref table Budget
+ref table LocalDateTable_87873b25-8441-4b14-bcc7-b08baf75ad0b
+ref table order_detail_sr
+ref table LocalDateTable_0088e3fa-6b31-4fa6-bf20-864ce96aa772
+ref table Monthly_Forecasts
+ref table CRM_Leads
+ref table CRM_Stages
+ref table CRM_Teams
+ref table CRM_Projects
+ref table CRM_Tasks
+ref table LocalDateTable_186ef6d2-02f6-4629-9771-4575771e477c
+ref table LocalDateTable_e82b78c2-4081-48d8-9cd4-0291be25b26b
+ref table LocalDateTable_d6e03a1f-d96d-4a93-9076-38b3374dc8dc
+ref table hours_forecast
+ref table LocalDateTable_faea66ce-d6e4-4cb1-a3b5-6b6c2d498056
+
+ref role greg
+ref role admin
+ref role frank
+ref role gary
+ref role haleigh
+ref role paul
+ref role chase
+
+ref cultureInfo en-US
+

@@ -1,0 +1,7 @@
+role admin
+	modelPermission: read
+
+	tablePermission Orders_Budget
+
+	annotation PBI_Id = c191a95a6b974663a69d73f35d48a468
+

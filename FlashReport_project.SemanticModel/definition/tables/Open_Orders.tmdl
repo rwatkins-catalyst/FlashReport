@@ -1,0 +1,197 @@
+table Open_Orders
+	lineageTag: ae618a82-765c-45da-b89c-c5d0e97ec9b1
+
+	measure 'TRUE Extenion -  FG' = ```
+			SUM(Open_Orders[Extension]) -  SUM(FGbyCustv3[total revenue - cogs]) 
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: d357b1fe-613e-4f70-880b-50b992ccc7b7
+
+	column Brand
+		dataType: string
+		lineageTag: 2f872c2c-021d-4f73-8a2d-68f763b1e173
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e4a22b24-248b-49e4-b912-92345d8175a6
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		variation Variation
+			isDefault
+			relationship: 389dce1a-c4c8-4c55-b4f5-16c3a2e1e277
+			defaultHierarchy: LocalDateTable_920b53bc-d35d-401a-a125-ad7d89fbf484.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Promise Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 855dc5e6-f815-42b3-9a8d-1827443e3e5e
+		summarizeBy: none
+		sourceColumn: Promise Date
+
+		variation Variation
+			isDefault
+			relationship: 42d1dd41-8efc-45a1-a08e-22c08511af67
+			defaultHierarchy: LocalDateTable_962320ae-350a-4a60-b460-d0e6bbd15338.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Due to Ship Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 15d1d71d-abe0-408c-893a-f9185bbb80af
+		summarizeBy: none
+		sourceColumn: Due to Ship Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Month/Year
+		dataType: string
+		lineageTag: c84893b0-3697-43c4-94a8-4b7e34c277ff
+		summarizeBy: none
+		sourceColumn: Month/Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Number'
+		dataType: int64
+		lineageTag: e938d158-cf06-419e-9004-e705590a46ce
+		summarizeBy: sum
+		sourceColumn: Order Number
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Description
+		dataType: string
+		lineageTag: 8fe2e43b-bfc2-4b5d-99f9-6f35de7d26c6
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Part Number'
+		dataType: string
+		lineageTag: fc998831-7b74-402c-9b5e-edef36fd83ac
+		summarizeBy: none
+		sourceColumn: Part Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ordered Quantity'
+		dataType: double
+		lineageTag: b92974cf-3418-4426-9a1a-4d3fdeef8f5c
+		summarizeBy: sum
+		sourceColumn: Ordered Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Extension
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8630cee1-21fe-40a3-8412-6f0c5933403a
+		summarizeBy: sum
+		sourceColumn: Extension
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Type'
+		dataType: string
+		lineageTag: 41bee86c-974e-4ff1-835f-ba0a973b14a4
+		summarizeBy: none
+		sourceColumn: Order Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FGOHBC Revenue'
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 46211ff0-5b1c-4f21-892b-2d03a4cd5e45
+		summarizeBy: sum
+		sourceColumn: FGOHBC Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FGOHBC INV'
+		dataType: double
+		lineageTag: 6f2d066c-8973-43e5-8b91-ee86a97a0b07
+		summarizeBy: sum
+		sourceColumn: FGOHBC INV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'User Lot'
+		dataType: string
+		lineageTag: 82ed7c6c-bfca-45c8-b78a-66cbe11ca343
+		summarizeBy: none
+		sourceColumn: User Lot
+
+		annotation SummarizationSetBy = User
+
+	column 'Days Ready'
+		dataType: int64
+		formatString: 0
+		lineageTag: 436fe166-af21-46e0-92cc-98f8f0219bdb
+		summarizeBy: sum
+		sourceColumn: Days Ready
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Group'
+		dataType: string
+		lineageTag: cab5f39c-6b51-439d-883b-bc9746ab4001
+		summarizeBy: none
+		sourceColumn: Day Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column exclude_from_backlog
+		dataType: int64
+		formatString: 0
+		lineageTag: c1162adc-4a8c-40de-a312-db1de9161c38
+		summarizeBy: sum
+		sourceColumn: exclude_from_backlog
+
+		annotation SummarizationSetBy = Automatic
+
+	column bi_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e1f3ff49-6887-4f9a-99eb-69fa911eadf9
+		summarizeBy: none
+		sourceColumn: bi_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Open_Orders = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_Open_Orders = deacom_replica{[Schema="dbo",Item="Open_Orders"]}[Data]
+				in
+				    dbo_Open_Orders
+
+	annotation PBI_ResultType = Table
+

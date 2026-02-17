@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "cb80d4bc05fd507adbf6",
+  "displayName": "OTTFP",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "363L"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "4e1dd53894eace551292",
+      "target": "725ede755772c66b96d5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f31a33760ca756d36958",
+      "target": "725ede755772c66b96d5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "5e327b27c047ca88ea7b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "4e1dd53894eace551292",
+      "target": "3145a42887ac049257aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "6bf88fa42aa0023aba39",
+      "target": "cd885b40293d70c4949d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "4dab48e02c756a44cb38",
+      "target": "cd885b40293d70c4949d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f0860b40142cdada428a",
+      "target": "cd885b40293d70c4949d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9b42e439b026a835965f",
+      "target": "cd885b40293d70c4949d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "54b8f4b9b0c6712ce8c7",
+      "target": "cd885b40293d70c4949d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fc0b99d029b0d0ca79ed",
+      "target": "cd885b40293d70c4949d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "33feb7d685178025d90a",
+      "target": "3145a42887ac049257aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "c562e2da1936ce9ca5f2",
+      "target": "3145a42887ac049257aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "5e327b27c047ca88ea7b",
+      "target": "3145a42887ac049257aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "25d5f65e689f624c685d",
+      "target": "3145a42887ac049257aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f31a33760ca756d36958",
+      "target": "3145a42887ac049257aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "33097afe99b140c97325",
+      "target": "3145a42887ac049257aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "25d5f65e689f624c685d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "33097afe99b140c97325",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "4e1dd53894eace551292",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "725ede755772c66b96d5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "33feb7d685178025d90a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "c562e2da1936ce9ca5f2",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3145a42887ac049257aa",
+      "target": "4dab48e02c756a44cb38",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f31a33760ca756d36958",
+      "target": "dc57df4b76133d5cbe11",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f31a33760ca756d36958",
+      "target": "4e1dd53894eace551292",
+      "type": "NoFilter"
+    }
+  ]
+}

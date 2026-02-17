@@ -1,0 +1,70 @@
+table Monthly_Forecasts
+	lineageTag: 43a3f445-1611-45fb-ab7c-6d3faf54d83a
+
+	measure Forecast_sr = if(isblank(sum(Monthly_Forecasts[forecast])),0,SUM(Monthly_Forecasts[forecast]))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2e22bf64-3599-48ca-9643-431d47b8c0c0
+
+	column bi_name
+		dataType: string
+		lineageTag: ca38fc7a-4198-4212-8fe2-160a7c8b3cf9
+		summarizeBy: none
+		sourceColumn: bi_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column bi_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c0e5844-8eff-4f00-86c9-064c43ed6555
+		summarizeBy: none
+		sourceColumn: bi_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast
+		dataType: int64
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7b62ef18-4945-48ad-b476-2a679931a21f
+		summarizeBy: sum
+		sourceColumn: forecast
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Rep'
+		dataType: string
+		lineageTag: 3ddd8957-4d09-47a8-ae24-a3d248d1a72e
+		summarizeBy: none
+		sourceColumn: Sales Rep
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: mmmm yyyy
+		lineageTag: b3d532b8-38b1-4951-b2e7-74ba408a7d10
+		summarizeBy: none
+		sourceColumn: date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition Monthly_Forecasts = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("CATSQL1\CATSQL1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_Monthly_Forecasts = deacom_replica{[Schema="dbo",Item="Monthly_Forecasts"]}[Data]
+				in
+				    dbo_Monthly_Forecasts
+
+	annotation PBI_ResultType = Table
+

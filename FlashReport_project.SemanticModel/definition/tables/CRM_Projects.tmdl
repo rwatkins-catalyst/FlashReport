@@ -1,0 +1,238 @@
+table CRM_Projects
+	lineageTag: ebcce8cf-95c9-45f5-b46f-2a3bc4a9bc47
+
+	column success
+		dataType: string
+		lineageTag: 9d6435ef-6865-4f60-beb2-d64d85cc5f99
+		summarizeBy: none
+		sourceColumn: success
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: string
+		lineageTag: 029302b9-4033-432c-8aa6-657493fdba66
+		summarizeBy: none
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column limit
+		dataType: string
+		lineageTag: a96e3e5e-7a08-4ac1-bd04-e2803a39f2db
+		summarizeBy: none
+		sourceColumn: limit
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset
+		dataType: string
+		lineageTag: 7f58a7f9-394b-4126-84e8-08c03ea1150a
+		summarizeBy: none
+		sourceColumn: offset
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.id'
+		dataType: string
+		lineageTag: 7069342a-4bc7-4b7e-a088-2051479044f9
+		summarizeBy: none
+		sourceColumn: data.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.name'
+		dataType: string
+		lineageTag: 00d78e05-6bc6-4496-803e-66dde2fa6d1c
+		summarizeBy: none
+		sourceColumn: data.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.user_id'
+		dataType: string
+		lineageTag: 7ee1575a-f6ad-40b8-bec6-825b21549ee6
+		summarizeBy: none
+		sourceColumn: data.user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.user_name'
+		dataType: string
+		lineageTag: a366f529-5ce7-4a00-9540-b19c65db07b2
+		summarizeBy: none
+		sourceColumn: data.user_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.partner_id'
+		dataType: string
+		lineageTag: f05a7f32-dd71-48df-b72e-7c7b46c5a6a0
+		summarizeBy: none
+		sourceColumn: data.partner_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.partner_name'
+		dataType: string
+		lineageTag: b201426c-65d3-4ec3-8aed-7bcfd37a4d09
+		summarizeBy: none
+		sourceColumn: data.partner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.company_id'
+		dataType: string
+		lineageTag: 62c3422d-006e-4dfa-9868-a69776f57982
+		summarizeBy: none
+		sourceColumn: data.company_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.company_name'
+		dataType: string
+		lineageTag: 7a856799-beb2-4db6-bc7d-cf099f880a4f
+		summarizeBy: none
+		sourceColumn: data.company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.stage_id'
+		dataType: string
+		lineageTag: 8e75678a-c94c-4963-b1b7-8d875fa113a3
+		summarizeBy: none
+		sourceColumn: data.stage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.stage_name'
+		dataType: string
+		lineageTag: 5127ea7d-1203-47dd-b2e7-c7ff16fe0246
+		summarizeBy: none
+		sourceColumn: data.stage_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.opportunity_id'
+		dataType: string
+		lineageTag: a21735d5-c019-47ce-b909-d18c0f899f01
+		summarizeBy: none
+		sourceColumn: data.opportunity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.opportunity_name'
+		dataType: string
+		lineageTag: 5293e1c1-2247-4475-872c-33e324fa028c
+		summarizeBy: none
+		sourceColumn: data.opportunity_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.task_count'
+		dataType: string
+		lineageTag: a4e3fa98-cca5-436d-bdeb-0710feb0e86d
+		summarizeBy: none
+		sourceColumn: data.task_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.active'
+		dataType: string
+		lineageTag: 4bac328c-d01b-4f31-867e-688afbaf5a9a
+		summarizeBy: none
+		sourceColumn: data.active
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.tags.id'
+		dataType: string
+		lineageTag: b1ba2d55-7cb9-4c1b-a613-07212c1bf647
+		summarizeBy: none
+		sourceColumn: data.tags.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.tags.name'
+		dataType: string
+		lineageTag: 2bd78933-28e1-49b9-9b8a-aa8d7c4da1bf
+		summarizeBy: none
+		sourceColumn: data.tags.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.create_date.1'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7ea1f85a-2dae-4fa2-a535-e8d8d0612181
+		summarizeBy: none
+		sourceColumn: data.create_date.1
+
+		variation Variation
+			isDefault
+			relationship: 47c9e885-05ec-4fb9-8a75-677b7d122d87
+			defaultHierarchy: LocalDateTable_e82b78c2-4081-48d8-9cd4-0291be25b26b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'data.create_date.2'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: d7bf8afb-b0f3-4400-b3d4-6883c5224cc0
+		summarizeBy: none
+		sourceColumn: data.create_date.2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'data.write_date.1'
+		dataType: string
+		lineageTag: c3807c90-8a2d-4f15-863a-4db4b5146d80
+		summarizeBy: none
+		sourceColumn: data.write_date.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'data.write_date.2'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 9ea9a052-8ff4-471e-bfde-d3854db19564
+		summarizeBy: none
+		sourceColumn: data.write_date.2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'data.write_date.3'
+		dataType: string
+		lineageTag: 3cc11e9f-e954-45c4-9709-277f92597822
+		summarizeBy: none
+		sourceColumn: data.write_date.3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CRM_Projects = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://catalystnutra.odoo.com/api/project/projects?limit=1000&offset=0&active=all&date_from=2025-01-01&date_to=2026-12-31", [Headers=[Authorization="Bearer f4c6df66a094e698a3ab302c2500004e9f8d7bff"]])),
+				    #"Converted to Table" = Table.FromRecords({Source}),
+				    #"Expanded data" = Table.ExpandListColumn(#"Converted to Table", "data"),
+				    #"Expanded data1" = Table.ExpandRecordColumn(#"Expanded data", "data", {"id", "name", "create_date", "write_date", "user_id", "user_name", "partner_id", "partner_name", "company_id", "company_name", "stage_id", "stage_name", "opportunity_id", "opportunity_name", "task_count", "active", "tags"}, {"data.id", "data.name", "data.create_date", "data.write_date", "data.user_id", "data.user_name", "data.partner_id", "data.partner_name", "data.company_id", "data.company_name", "data.stage_id", "data.stage_name", "data.opportunity_id", "data.opportunity_name", "data.task_count", "data.active", "data.tags"}),
+				    #"Expanded data.tags" = Table.ExpandListColumn(#"Expanded data1", "data.tags"),
+				    #"Expanded data.tags1" = Table.ExpandRecordColumn(#"Expanded data.tags", "data.tags", {"id", "name"}, {"data.tags.id", "data.tags.name"}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Expanded data.tags1", "data.create_date", Splitter.SplitTextByDelimiter("T", QuoteStyle.Csv), {"data.create_date.1", "data.create_date.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"data.create_date.1", type date}, {"data.create_date.2", type time}}),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Changed Type", "data.write_date", Splitter.SplitTextByDelimiter("T", QuoteStyle.Csv), {"data.write_date.1", "data.write_date.2", "data.write_date.3"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"data.write_date.2", type time}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

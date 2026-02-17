@@ -1,0 +1,260 @@
+table Margin
+	lineageTag: f9d38036-09f9-483d-9c6c-19a9466ffd6c
+
+	measure vcm% = DIVIDE(sum(Margin[vc_$]),sum(Margin[or_exten]),0)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 569e8fb9-06a7-4d25-8d92-50f40efab6e2
+
+	measure vc_delta = sum(Margin[vc_$]) - sum(Margin[qv])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ebc7a83d-f4eb-4cf7-b379-cd48f2e50940
+
+	measure 'vc/quoted %' = ```
+			divide(sum(Margin[vc_$]),sum(Margin[qv]),0) 
+			```
+		formatString: 0.000%;-0.000%;0.000%
+		lineageTag: d371208e-99fc-4745-8213-ab84e0d0ab73
+
+	column to_ordnum
+		dataType: string
+		lineageTag: 458f0857-6d42-4ec2-b808-0ba956c8b27d
+		summarizeBy: none
+		sourceColumn: to_ordnum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column matl
+		dataType: double
+		lineageTag: e6f3a7ba-6128-494c-a75a-4411bf8b8dee
+		summarizeBy: sum
+		sourceColumn: matl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totl_matl
+		dataType: double
+		lineageTag: 985fc918-bcea-45f2-88cc-a7ef0ade03c2
+		summarizeBy: sum
+		sourceColumn: totl_matl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column matl_adj
+		dataType: double
+		lineageTag: 7351e053-2b6f-4e25-b290-0e5045ab31b3
+		summarizeBy: sum
+		sourceColumn: matl_adj
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column totl_vc
+		dataType: double
+		lineageTag: b0b6fa7f-f7e5-456c-95b5-62e445fd8786
+		summarizeBy: sum
+		sourceColumn: totl_vc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column to_shipped
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 31a3bc32-dc49-46fa-b463-9a1a25fb6c53
+		summarizeBy: none
+		sourceColumn: to_shipped
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column kg
+		dataType: double
+		lineageTag: 5ec1469a-e898-47a2-a61c-cd3395f41a47
+		summarizeBy: sum
+		sourceColumn: kg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column bi_name
+		dataType: string
+		lineageTag: e581c67e-848d-409c-a294-a5460b974bab
+		summarizeBy: none
+		sourceColumn: bi_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column bi_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b65275e-8dc2-4c60-a0a0-394f0bebd4e7
+		summarizeBy: sum
+		sourceColumn: bi_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column pr_descrip
+		dataType: string
+		lineageTag: f3dd677b-0501-4249-a3db-0db694472561
+		summarizeBy: none
+		sourceColumn: pr_descrip
+
+		annotation SummarizationSetBy = Automatic
+
+	column or_qship
+		dataType: double
+		lineageTag: 4bb155a8-6200-4c11-a537-4d90e8270712
+		summarizeBy: sum
+		sourceColumn: or_qship
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column or_quant
+		dataType: double
+		lineageTag: 05c9abe9-872c-4075-9878-efc921a8ae4d
+		summarizeBy: sum
+		sourceColumn: or_quant
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column or_price
+		dataType: double
+		lineageTag: aaf7f3a1-5f11-4871-9872-7dad67baed5b
+		summarizeBy: sum
+		sourceColumn: or_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column or_exten
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 77c0f6f5-14d4-49a8-b638-8e009420bc92
+		summarizeBy: sum
+		sourceColumn: or_exten
+
+		annotation SummarizationSetBy = Automatic
+
+	column or_unitcos
+		dataType: double
+		lineageTag: fdbfa56f-b2c9-4e0c-aff9-d0e5945e638e
+		summarizeBy: sum
+		sourceColumn: or_unitcos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column un_factor
+		dataType: double
+		lineageTag: 41a12f56-4685-480d-a907-88222141e8fc
+		summarizeBy: sum
+		sourceColumn: un_factor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_conv
+		dataType: double
+		lineageTag: c85e4c9d-7aa4-47d9-9a66-b0319214e238
+		summarizeBy: sum
+		sourceColumn: price_conv
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column percent_shipped
+		dataType: double
+		lineageTag: 2f9710fa-29e3-416a-8f55-12b814ab7abd
+		summarizeBy: sum
+		sourceColumn: percent_shipped
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vc
+		dataType: string
+		lineageTag: 025ee1f7-ab09-4c4e-bcef-b1593ba1cc50
+		summarizeBy: none
+		sourceColumn: vc
+
+		annotation SummarizationSetBy = Automatic
+
+	column fc
+		dataType: string
+		lineageTag: 4ca7e5e9-28aa-44cb-8501-9c2dc251e88d
+		summarizeBy: none
+		sourceColumn: fc
+
+		annotation SummarizationSetBy = Automatic
+
+	column qv
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2e1c3394-fa2d-4438-90ea-bf3fc9be88c8
+		summarizeBy: sum
+		sourceColumn: qv
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column freight
+		dataType: double
+		lineageTag: c83b0ad8-f683-4511-9621-2f0e6d7f214b
+		summarizeBy: sum
+		sourceColumn: freight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vc_$
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 08a39f5f-f854-43d0-9e60-50a0d0621569
+		summarizeBy: sum
+		sourceColumn: vc_$
+
+		annotation SummarizationSetBy = Automatic
+
+	column ord_num_group
+		dataType: string
+		lineageTag: de6b01e0-f551-49c3-af2b-74f0ca879c8e
+		summarizeBy: none
+		sourceColumn: ord_num_group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Margin = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("catsql1\catsql1"),
+				    deacom_replica = Source{[Name="deacom_replica"]}[Data],
+				    dbo_margin_test = deacom_replica{[Schema="dbo",Item="Margin"]}[Data]
+				in
+				    dbo_margin_test
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
