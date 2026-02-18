@@ -87,6 +87,7 @@ ref table LocalDateTable_e82b78c2-4081-48d8-9cd4-0291be25b26b
 ref table LocalDateTable_d6e03a1f-d96d-4a93-9076-38b3374dc8dc
 ref table hours_forecast
 ref table LocalDateTable_faea66ce-d6e4-4cb1-a3b5-6b6c2d498056
+ref table brands_copy
 
 ref role greg
 ref role admin

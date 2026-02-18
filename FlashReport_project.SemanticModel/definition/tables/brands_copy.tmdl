@@ -1,0 +1,69 @@
+table brands_copy
+	lineageTag: 6abd851a-95d1-4d60-bc36-d0cd20ab5456
+
+	column bi_name
+		lineageTag: 0345ce99-c5d8-4015-af82-d72226d2f532
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Brands[bi_name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column bi_id
+		formatString: 0
+		lineageTag: ba8f5958-d203-4a73-af4d-27c3dc65f15a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Brands[bi_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier
+		lineageTag: d93927a2-51c1-4eef-8b04-1782bc1592f5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Brands[tier]
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_rep_id
+		formatString: 0
+		lineageTag: 19f3a3e3-2f20-48b2-9353-241d160b78c3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: Brands[sales_rep_id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Rep'
+		lineageTag: 1fe44721-cb2e-4ca2-b9b9-d126a560c2d5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Brands[Sales Rep]
+
+		annotation SummarizationSetBy = Automatic
+
+	column domain
+		lineageTag: 3a0286ec-8058-4e31-86b4-719d8a710768
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Brands[domain]
+
+		annotation SummarizationSetBy = Automatic
+
+	column bi_name_adj
+		lineageTag: d5f519bc-c49b-419c-b98d-3bce533c2698
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Brands[bi_name_adj]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition brands_copy = calculated
+		mode: import
+		source = ```
+				Brands 
+				```
+
+	annotation PBI_Id = 98b192400a244aeb88043b4e1cbb213c
+
