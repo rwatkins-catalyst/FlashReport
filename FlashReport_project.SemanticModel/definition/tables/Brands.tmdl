@@ -8,6 +8,10 @@ table Brands
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'new measire test 2' = 1
+		formatString: 0
+		lineageTag: c4424183-0187-496f-9a3a-46c0c763093e
+
 	column bi_name
 		dataType: string
 		lineageTag: 9eb81162-d044-4a09-9d78-7a8a6c384211

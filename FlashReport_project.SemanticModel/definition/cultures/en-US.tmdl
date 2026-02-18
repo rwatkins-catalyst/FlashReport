@@ -39277,7 +39277,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "VCM %": {
+			          "VC%": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -39287,7 +39287,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "VC%": {
+			          "VCM %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -48297,7 +48297,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Budget VC%": {
+			          "Budget VC %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -48307,7 +48307,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Budget VC %": {
+			          "Budget VC%": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
